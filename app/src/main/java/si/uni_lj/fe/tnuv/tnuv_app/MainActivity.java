@@ -14,5 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    //haha ballers, torej balls, jajcka even, testiculars if u prefer
+
 
 }
