@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_2"
-        android:enabled="true"
-        android:icon="@drawable/icon_2"
+        android:id="@+id/list"
+        android:icon="@drawable/list_icon"
         android:title="@string/list"/>
     <item
-        android:id="@+id/page_1"
-        android:enabled="true"
-        android:icon="@drawable/icon_1"
-        android:title="@string/workout"/>
+        android:id="@+id/dumbbell"
+        android:icon="@drawable/dumbbell_icon"
+        android:title="dumbbell"/>
     <item
-        android:id="@+id/page_2"
-        android:enabled="true"
-        android:icon="@drawable/icon_2"
+        android:id="@+id/profile"
+        android:icon="@drawable/profile_icon"
         android:title="@string/profile"/>
 
 </menu>
