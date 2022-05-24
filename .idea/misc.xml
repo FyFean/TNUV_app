@@ -3,13 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/dumbbell_icon.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/icon_1.xml" value="0.2415" />
-        <entry key="app/src/main/res/drawable/list_icon.xml" value="0.2415" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3353546142578124" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2246376811594203" />
-        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.2246376811594203" />
-        <entry key="app/src/main/res/layout/fragment_workout.xml" value="0.2246376811594203" />
-        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.11347517730496454" />
+        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.11347517730496454" />
+        <entry key="app/src/main/res/layout/fragment_workout.xml" value="0.11347517730496454" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2440460205078125" />
       </map>
     </option>
   </component>

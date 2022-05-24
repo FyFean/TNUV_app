@@ -23,28 +23,32 @@ public class MainActivity extends AppCompatActivity {
 
         navigationBarView.setOnItemSelectedListener(bottomNavMethod);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new WorkoutFragment()).commit();
+
+
+        navigationBarView.setSelectedItemId(R.id.dumbbell);
 
 
     }
 
-    private NavigationBarView.OnItemSelectedListener bottomNavMethod = new NavigationBarView.OnItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment fragment = null;
-            switch (item.getItemId()){
-                case R.id.profile:
-                    fragment = new HomeFragment();
-                case R.id.dumbbell:
-                    fragment = new WorkoutFragment();
-                case R.id.list:
-                    fragment = new ListFragment();
+    private NavigationBarView.OnItemSelectedListener bottomNavMethod = item -> {
+        Fragment fragment = null;
+        switch (item.getItemId()){
+            case R.id.list:
+                fragment = new ListFragment();
+                break;
+            case R.id.profile:
+                fragment = new HomeFragment();
+                break;
+            case R.id.dumbbell:
+                fragment = new WorkoutFragment();
+                break;
 
-            }
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
-            return true;
         }
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+        return true;
     };
 
 

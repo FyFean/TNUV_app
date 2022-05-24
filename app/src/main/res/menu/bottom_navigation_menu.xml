@@ -3,14 +3,14 @@
     <item
         android:id="@+id/list"
         android:icon="@drawable/list_icon"
-        android:title="@string/list"/>
+        android:layout_centerInParent="true"/>
     <item
         android:id="@+id/dumbbell"
         android:icon="@drawable/dumbbell_icon"
-        android:title="dumbbell"/>
+        android:layout_centerInParent="true"/>
     <item
         android:id="@+id/profile"
         android:icon="@drawable/profile_icon"
-        android:title="@string/profile"/>
+        android:layout_gravity="center"/>
 
 </menu>
