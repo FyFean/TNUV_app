@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TNUV_app</string>
+    <string name="profile">profile</string>
+    <string name="workout">start workout</string>
+    <string name="list">list</string>
+</resources>
