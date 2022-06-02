@@ -1,12 +1,18 @@
 package si.uni_lj.fe.tnuv.tnuv_app;
 
+import android.util.Log;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +20,12 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class ListFragment extends Fragment {
+
+    private RecyclerView recyclerView;
+    ArrayList<Vaja> listVaj = new ArrayList<Vaja>();
+
+//    private ArrayList<Vaja> listVaj;
+//    RecyclerView recyclerView = new RecyclerView();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -53,12 +65,47 @@ public class ListFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+    }
+    // getActivity().getApplicationContext() ma on samo getApplicationContext()
+    private void setAdapter() {
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        recyclerView.setAdapter(adapter);
+
+    }
+
+    private void setVajaInfo() {
+        listVaj.add(new Vaja("Squats", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Lundges", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false);
+
+        // 0. inflate the layout of this fragment
+        View rootView = inflater.inflate(R.layout.fragment_list, container, false);
+
+        // 1. get a reference to recyclerView
+        recyclerView = rootView.findViewById(R.id.recyclerView);
+        setVajaInfo();
+
+        // 2. set layoutManger
+        recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
+
+        // 3. create an adapter
+        recyclerAdapter adapter = new recyclerAdapter(listVaj);
+
+        // 4. set adapter
+        recyclerView.setAdapter(adapter);
+
+        // 5. set item animator to DefaultAnimator
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        return rootView;
     }
 }
