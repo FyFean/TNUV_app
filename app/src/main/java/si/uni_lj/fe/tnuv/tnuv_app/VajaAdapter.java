@@ -14,17 +14,16 @@ import android.widget.Toast;
 import android.content.Context;
 
 //ustvarimo class recyclerAdapter za listVaj in znotraj se class MyViewHolder
-public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyViewHolder> {
+public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> {
     public ArrayList<Vaja> listVaj;
     Context context;
 
-
-    recyclerAdapter(ArrayList<Vaja> listVaj){
+    VajaAdapter(ArrayList<Vaja> listVaj){
         this.listVaj = listVaj;
     }
 
     //MyViewHolder defines kako bo izgledal posamezni element v seznamu
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
         private TextView nameTxt;
         private TextView muscleTxt;
         private ImageView img;
@@ -43,15 +42,15 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
     //potem infatamo nas view kjer napisemo kaj se zgodi onCreate nasega viewHolderja
     @NonNull
     @Override
-    public recyclerAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_items, parent, false);
+    public VajaAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.vaje_card, parent, false);
         context = parent.getContext();
         return new MyViewHolder(itemView);
     }
 
     //tuki setamo ime nase vaje, povezemo text na xmlju z array listom
     @Override
-    public void onBindViewHolder(@NonNull recyclerAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull VajaAdapter.MyViewHolder holder, int position) {
         String imeV = listVaj.get(position).getImeVaje();
         String muscleV = listVaj.get(position).getMuscleG();
         int imgV = listVaj.get(position).getImgVaje();
@@ -73,6 +72,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
     //setamo item count na dolzino arraylista
     @Override
     public int getItemCount() {
+
         return listVaj.size();
     }
 }

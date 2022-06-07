@@ -8,10 +8,17 @@
         <entry key="app/src/main/res/drawable/list_icon.xml" value="0.2415" />
         <entry key="app/src/main/res/drawable/profile_icon.xml" value="0.1375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3353546142578124" />
+        <entry key="app/src/main/res/layout/activity_workout_details.xml" value="0.2109375" />
+        <entry key="app/src/main/res/layout/activity_workout_details2.xml" value="0.2109375" />
+        <entry key="app/src/main/res/layout/content_workout_details.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment1.xml" value="0.1718377088305489" />
+        <entry key="app/src/main/res/layout/fragment2.xml" value="0.2683391356526494" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2246376811594203" />
-        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.4584103512014787" />
-        <entry key="app/src/main/res/layout/fragment_workout.xml" value="0.2246376811594203" />
-        <entry key="app/src/main/res/layout/list_items.xml" value="0.231927490234375" />
+        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.42613636363636365" />
+        <entry key="app/src/main/res/layout/fragment_workout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/list_items.xml" value="0.19894561767578128" />
+        <entry key="app/src/main/res/layout/workout_card.xml" value="0.6117824773413897" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.3098958333333333" />
       </map>
     </option>

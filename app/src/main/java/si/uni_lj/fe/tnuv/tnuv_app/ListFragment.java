@@ -1,6 +1,5 @@
 package si.uni_lj.fe.tnuv.tnuv_app;
 
-import android.util.Log;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -67,18 +66,21 @@ public class ListFragment extends Fragment {
         }
 
     }
-    // getActivity().getApplicationContext() ma on samo getApplicationContext()
-    private void setAdapter() {
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
-//        recyclerView.setLayoutManager(layoutManager);
-//        recyclerView.setItemAnimator(new DefaultItemAnimator());
-//        recyclerView.setAdapter(adapter);
-
-    }
 
     private void setVajaInfo() {
         listVaj.add(new Vaja("Squats", "Legs", R.drawable.dumbbell_icon));
         listVaj.add(new Vaja("Lundges", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
         listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
 
     }
@@ -98,7 +100,7 @@ public class ListFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
 
         // 3. create an adapter
-        recyclerAdapter adapter = new recyclerAdapter(listVaj);
+        VajaAdapter adapter = new VajaAdapter(listVaj);
 
         // 4. set adapter
         recyclerView.setAdapter(adapter);

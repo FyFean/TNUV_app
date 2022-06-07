@@ -25,9 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new WorkoutFragment()).commit();
 
-
         navigationBarView.setSelectedItemId(R.id.dumbbell);
-
 
     }
 
@@ -43,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.dumbbell:
                 fragment = new WorkoutFragment();
                 break;
-
-
         }
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
