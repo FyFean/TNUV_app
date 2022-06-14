@@ -7,12 +7,16 @@ public class Vaja implements Parcelable {
     private String imeVaje;
     private String muscleG;
     private int imgVaje;
+    private String desc;
+    private int cals;
 
 
-    public Vaja(String imeVaje, String muscleG, int imgVaje){
+    public Vaja(String imeVaje, String muscleG, int imgVaje, String desc, int cals){
         this.imeVaje = imeVaje;
         this.muscleG = muscleG;
         this.imgVaje = imgVaje;
+        this.desc = desc;
+        this.cals = cals;
     }
 
     protected Vaja(Parcel in) {

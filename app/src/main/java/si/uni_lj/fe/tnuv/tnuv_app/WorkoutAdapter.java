@@ -2,19 +2,15 @@ package si.uni_lj.fe.tnuv.tnuv_app;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.MyViewHolder> {
@@ -55,7 +51,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.MyViewHo
 
         // onClick klicemo novo aktivnost in ji passamo paramentre
         holder.cv.setOnClickListener(view -> {
-            Intent intent = new Intent(context, WorkoutDetails.class);
+            Intent intent = new Intent(context, WorkoutPodrobnosti.class);
             intent.putExtra("mylist", workoutList.get(position));
             context.startActivity(intent);
         });

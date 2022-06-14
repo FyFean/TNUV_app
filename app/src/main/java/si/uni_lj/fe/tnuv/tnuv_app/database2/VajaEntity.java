@@ -1,14 +1,14 @@
-package si.uni_lj.fe.tnuv.tnuv_app.database;
+package si.uni_lj.fe.tnuv.tnuv_app.database2;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 
-@Entity(tableName = "vaje")
+@Entity
 public class VajaEntity {
     @PrimaryKey(autoGenerate = true)
-    public int id;
+    public int idVaje;
 
     @ColumnInfo(name = "ime_vaje")
     public String imeVaje;
@@ -19,5 +19,12 @@ public class VajaEntity {
     @ColumnInfo(name = "img_vaje")
     public int imgVaje;
 
+    @ColumnInfo(name = "desc")
+    public String desc;
+
+    @ColumnInfo(name = "cals")
+    public int cals;
+
 }
+
 
