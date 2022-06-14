@@ -42,11 +42,11 @@ public class TabPageAdapter extends FragmentPagerAdapter {
         String title = null;
         if (position == 0)
         {
-            title = "Custom workouts";
+            title = "Custom";
         }
         else if (position == 1)
         {
-            title = "Premade workouts";
+            title = "Premade";
         }
         return title;
     }

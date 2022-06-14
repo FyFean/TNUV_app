@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TNUV_app">
         <activity
-            android:name=".WorkoutDetails"
+            android:name=".WorkoutPodrobnosti"
             android:exported="false"
             android:label="@string/title_activity_workout_details"
             android:theme="@style/Theme.TNUV_app.NoActionBar" />

@@ -6,12 +6,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import si.uni_lj.fe.tnuv.tnuv_app.database2.AppDatabase;
+import si.uni_lj.fe.tnuv.tnuv_app.database2.VajaEntity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,10 +26,10 @@ import java.util.ArrayList;
 public class ListFragment extends Fragment {
 
     private RecyclerView recyclerView;
+
     ArrayList<Vaja> listVaj = new ArrayList<Vaja>();
 
-//    private ArrayList<Vaja> listVaj;
-//    RecyclerView recyclerView = new RecyclerView();
+    VajaAdapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,24 +72,45 @@ public class ListFragment extends Fragment {
 
     }
 
-    private void setVajaInfo() {
-        listVaj.add(new Vaja("Squats", "Legs", R.drawable.dumbbell_icon));
-        listVaj.add(new Vaja("Lundges", "Legs", R.drawable.dumbbell_icon));
-        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
-        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
-        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
-        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
-        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
-        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
-        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
-        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
-        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
-        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
-        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
-        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+    //v onStart se povezemo z bazo da dobimo vse vaje in updatamo adapter
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        //thread implements interface runnable ki ima notr metodo run
+        new Thread(){
+
+            @Override
+            public void run() {
+                AppDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(), AppDatabase.class, "database-name").build();
+
+                List<VajaEntity> v = db.vajeDao().getAll();
+
+                for (int i = 0; i < v.size(); i++) {
+                    System.out.println("** "+v.get(i).imeVaje+", " +v.get(i).idVaje);
+                }
+
+                //vrne podatke v main thread
+                getActivity().runOnUiThread( () -> setVajaAdapter(v));
+            }
+        }.start();
+    }
+
+    private void setVajaAdapter(List<VajaEntity> vaje) {
+        for (int i = 0; i < vaje.size(); i++) {
+            VajaEntity vajaE = vaje.get(i);
+            System.out.println(vajaE.idVaje);
+            listVaj.add(new Vaja(vajaE.imeVaje, vajaE.muscleG, R.drawable.dumbbell_icon, vajaE.desc, vajaE.cals));
+        }
+
+        adapter.notifyDataSetChanged();
+
+//        listVaj.add(new Vaja("Lundges", "Legs", R.drawable.dumbbell_icon));
 
     }
 
+    //najprej se klice onCreateView zato tuki nastavimo new Adapter in sele ko
+    //dobimo podatke iz baze v OnStart updatamo nas adapter.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -94,13 +120,12 @@ public class ListFragment extends Fragment {
 
         // 1. get a reference to recyclerView
         recyclerView = rootView.findViewById(R.id.recyclerView);
-        setVajaInfo();
 
         // 2. set layoutManger
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
 
         // 3. create an adapter
-        VajaAdapter adapter = new VajaAdapter(listVaj);
+        adapter = new VajaAdapter(listVaj);
 
         // 4. set adapter
         recyclerView.setAdapter(adapter);

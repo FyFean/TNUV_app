@@ -8,9 +8,13 @@ import java.util.ArrayList;
 public class Workout implements Parcelable {
     private ArrayList<Vaja> vaje;
     private String ime;
+    private int trajanje;
+    private int totalCals;
 
-    public Workout(String ime, ArrayList<Vaja> vaje){
+    public Workout(String ime, int trajanje, int totalCals, ArrayList<Vaja> vaje){
         this.ime = ime;
+        this.trajanje = trajanje;
+        this.totalCals = totalCals;
         this.vaje = vaje;
     }
 

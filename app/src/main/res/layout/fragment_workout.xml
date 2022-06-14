@@ -9,17 +9,47 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/bcg"
+        android:paddingBottom="20dp"
+        app:elevation="0dp"
       >
 
-        <com.google.android.material.tabs.TabLayout
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:id="@+id/tab_layout"
-            app:tabMode="fixed"
-            app:tabGravity="fill"
-            >
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Workouts"
+            android:textColor="@color/white"
+            android:textSize="20dp">
 
-        </com.google.android.material.tabs.TabLayout>
+        </TextView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:background="@color/purple_blue"
+            app:cardCornerRadius="25dp"
+            >
+            <com.google.android.material.tabs.TabLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:id="@+id/tab_layout"
+                app:tabMode="fixed"
+                app:tabGravity="fill"
+                android:layout_gravity="center"
+                app:tabBackground="@drawable/tab_selected"
+                app:tabIndicatorColor="@color/white"
+                app:tabTextColor="@color/gray"
+                app:tabSelectedTextColor="@color/white"
+                >
+            </com.google.android.material.tabs.TabLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
 
     </com.google.android.material.appbar.AppBarLayout>
     <androidx.viewpager.widget.ViewPager
@@ -27,6 +57,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/view_pager"
+        android:background="@color/bcg"
         />
 
 
