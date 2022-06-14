@@ -3,10 +3,15 @@ package si.uni_lj.fe.tnuv.tnuv_app;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +19,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+
+    private RecyclerView recyclerView;
+    ArrayList<Vaja> listVaj = new ArrayList<Vaja>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,10 +63,34 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    private void setVajaInfo() {
+        listVaj.add(new Vaja("Squats", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Lundges", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon));
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        // 0. Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.activity_profile, container, false);
+
+        // 1. get a reference to recyclerView
+        recyclerView = rootView.findViewById(R.id.recyclerView);
+        setVajaInfo();
+
+        // 2. set layoutManger
+        recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
+
+        // 3. create an adapter
+        VajaAdapter adapter = new VajaAdapter(listVaj);
+
+        // 4. set adapter
+        recyclerView.setAdapter(adapter);
+
+        // 5. set item animator to DefaultAnimator
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        return rootView;
     }
 }
