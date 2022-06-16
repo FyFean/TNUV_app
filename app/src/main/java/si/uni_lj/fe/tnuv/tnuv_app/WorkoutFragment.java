@@ -70,7 +70,6 @@ public class WorkoutFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_workout, container, false);
         configureTabLayout(view);
         return view;
-
     }
 
     private void configureTabLayout(View view) {
