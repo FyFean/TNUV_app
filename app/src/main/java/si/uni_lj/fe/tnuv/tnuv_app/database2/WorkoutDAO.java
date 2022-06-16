@@ -17,7 +17,6 @@ public interface WorkoutDAO {
     @Query("SELECT * FROM WorkoutEntity WHERE isCustom = 1")
     List<WorkoutEntity> getCustom();
 
-
     @Insert
     void insert(si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutEntity workout);
 

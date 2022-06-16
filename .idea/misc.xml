@@ -3,24 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.1111111111111111" />
         <entry key="../../../../layout/custom_preview.xml" value="0.2520833333333333" />
         <entry key="app/src/main/res/drawable/icon_1.xml" value="0.2415" />
         <entry key="app/src/main/res/drawable/list_icon.xml" value="0.2415" />
         <entry key="app/src/main/res/drawable/profile_icon.xml" value="0.1375" />
-        <entry key="app/src/main/res/drawable/tab_selected.xml" value="0.1245" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3353546142578124" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_workout_details.xml" value="0.2109375" />
         <entry key="app/src/main/res/layout/activity_workout_details2.xml" value="0.2109375" />
-        <entry key="app/src/main/res/layout/content_workout_details.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment1.xml" value="0.3543374036547677" />
-        <entry key="app/src/main/res/layout/fragment2.xml" value="0.8445567870198369" />
+        <entry key="app/src/main/res/layout/content_workout_details.xml" value="0.21170196533203128" />
+        <entry key="app/src/main/res/layout/fragment1.xml" value="0.1718377088305489" />
+        <entry key="app/src/main/res/layout/fragment2.xml" value="0.2683391356526494" />
+        <entry key="app/src/main/res/layout/fragment_excercise_details.xml" value="0.16822916666666668" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2246376811594203" />
-        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.3330718994140625" />
-        <entry key="app/src/main/res/layout/fragment_workout.xml" value="0.36347517730496454" />
+        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.42613636363636365" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2153778076171875" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.14345550537109375" />
+        <entry key="app/src/main/res/layout/fragment_workout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/list_items.xml" value="0.19894561767578128" />
-        <entry key="app/src/main/res/layout/vaje_card.xml" value="0.437702322697294" />
-        <entry key="app/src/main/res/layout/workout_card.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/profile.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/vaje_card.xml" value="0.26268115942028986" />
+        <entry key="app/src/main/res/layout/workout_card.xml" value="0.20203516288826465" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.3098958333333333" />
       </map>
     </option>
@@ -30,5 +35,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.16822916666666668" />
+      </ProjectState>
+    </option>
   </component>
 </project>

@@ -8,11 +8,13 @@ import android.os.Bundle;
 
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import si.uni_lj.fe.tnuv.tnuv_app.database2.AppDatabase;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.CrossRefVajaWorkout;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.DetailsEntity;
+import si.uni_lj.fe.tnuv.tnuv_app.database2.PersonEntity;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.VajaEntity;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutEntity;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutVaje;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         navigationBarView.setSelectedItemId(R.id.dumbbell);
 
-        getApplicationContext().deleteDatabase("database-name");
+       getApplicationContext().deleteDatabase("database-name");
         InsertDataInDB();
 //        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
 
@@ -52,7 +54,22 @@ public class MainActivity extends AppCompatActivity {
     public void InsertDataInDB(){
         //TODO: popravi da je na svoji niti
        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
-//
+
+
+// P E O P L E
+
+        // P E O P L E
+        PersonEntity oseba1 = new PersonEntity();
+        oseba1.imePriimek = "Živa Groza";
+        oseba1.spol = "F";
+        oseba1.caloriesGoal = 700;
+        oseba1.timeGoal = 50;
+        oseba1.bodyWeight = 60;
+        oseba1.bodyHeight = 170;
+        oseba1.timeDone = 0;
+        oseba1.caloriesDone = 0;
+        db.personDAO().insert(oseba1);
+
         VajaEntity squats = new VajaEntity();
         squats.imeVaje = "Squats";
         squats.muscleG = "Legs";
@@ -93,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
         upperBody.isCustom = 1;
         upperBody.trajanje = 30;
         upperBody.totalCals = 0;
+        upperBody.pripadaOsebi = 1;
         db.workoutDAO().insert(upperBody);
 
         WorkoutEntity upperBody2 = new WorkoutEntity();
@@ -100,7 +118,10 @@ public class MainActivity extends AppCompatActivity {
         upperBody2.isCustom = 1;
         upperBody2.trajanje = 40;
         upperBody2.totalCals = 0;
+        upperBody2.pripadaOsebi = 1;
         db.workoutDAO().insert(upperBody2);
+
+        System.out.println("oseba1.idPerson " + oseba1.idPerson+ db.personDAO().getAll().get(0).idPerson);
 
         //povezemo upper body z vsemi vajami ki jih imamo
         for (int i = 0; i < db.vajeDao().getAll().size(); i++) {
@@ -189,7 +210,109 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("** id vaje: " + v.get(i).idVaje+", " + v.get(i).imeVaje);
         }
 
+//      O S E B A
+        List<PersonEntity> p = db.personDAO().getAll();
+        for (int i = 0; i < p.size(); i++) {
+            System.out.println("****************** OSEBA RATATATTATATAT id cloveka: " + p.get(i).idPerson+", " + p.get(i).imePriimek);
+        }
+
+
     }
+
+//    public void InsertDataInDB() {
+//        //TODO: popravi da je na svoji niti
+//        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
+//
+//        VajaEntity squats = new VajaEntity();
+//        squats.imeVaje = "Squats";
+//        squats.muscleG = "Legs";
+//        squats.imgVaje = 1;
+//        squats.cals = 20;
+//        db.vajeDao().insert(squats);
+//
+//        VajaEntity lundges = new VajaEntity();
+//        lundges.imeVaje = "Lundges";
+//        lundges.muscleG = "Legs";
+//        lundges.imgVaje = 2;
+//        lundges.cals = 20;
+//        db.vajeDao().insert(lundges);
+//
+//        VajaEntity hipThr = new VajaEntity();
+//        hipThr.imeVaje = "Hip thrusts";
+//        hipThr.muscleG = "Legs";
+//        hipThr.imgVaje = 3;
+//        hipThr.cals = 20;
+//        db.vajeDao().insert(hipThr);
+//
+//        VajaEntity good_morning = new VajaEntity();
+//        good_morning.imeVaje = "Good morning";
+//        good_morning.muscleG = "Legs";
+//        good_morning.imgVaje = 4;
+//        good_morning.cals = 11;
+//        db.vajeDao().insert(good_morning);
+//
+//        VajaEntity romanian_deadlift = new VajaEntity();
+//        romanian_deadlift.imeVaje = "Romanian deadlift";
+//        romanian_deadlift.muscleG = "Legs";
+//        romanian_deadlift.imgVaje = 5;
+//        romanian_deadlift.cals = 33;
+//        db.vajeDao().insert(romanian_deadlift);
+//
+//        // P E O P L E
+//        PersonEntity oseba1 = new PersonEntity();
+//        oseba1.imePriimek = "Živa Groza";
+//        oseba1.spol = "F";
+//        oseba1.caloriesGoal = 700;
+//        oseba1.timeGoal = 50;
+//        oseba1.bodyWeight = 60;
+//        oseba1.bodyHeight = 170;
+//        oseba1.timeDone = 0;
+//        oseba1.caloriesDone = 0;
+//        db.personDAO().insert(oseba1);
+//
+//        WorkoutEntity upperBody = new WorkoutEntity();
+//        upperBody.imeWorkouta = "Upper body";
+//        upperBody.isCustom = 1;
+//        upperBody.trajanje = 30;
+//        upperBody.totalCals = 0;
+//        upperBody.pripadaOsebi = 1;
+//        db.workoutDAO().insert(upperBody);
+//
+//
+////
+////        WorkoutEntity upperBody2 = new WorkoutEntity();
+////        upperBody2.imeWorkouta = "Upper body 2";
+////        upperBody2.isCustom = 1;
+////        upperBody2.trajanje = 40;
+////        upperBody2.totalCals = 0;
+////        db.workoutDAO().insert(upperBody2);
+//
+//
+//
+//        //      O S E B A
+//        List<PersonEntity> p = db.personDAO().getAll();
+//        for (int i = 0; i < p.size(); i++) {
+//            System.out.println("****************** OSEBA RATATATTATATAT id cloveka: " + p.get(i).idPerson+", " + p.get(i).imePriimek);
+//        }
+//
+////        //povezemo upper body z vsemi vajami ki jih imamo
+////        for (int i = 0; i < db.vajeDao().getAll().size(); i++) {
+////            CrossRefVajaWorkout cr = new CrossRefVajaWorkout();
+////            cr.idWorkouta = 1;
+////            cr.idVaje = i;
+////            db.workoutVajeDAO().insert(cr);
+////        }
+////
+////
+//////    D E T A I L S
+////        DetailsEntity prviSet = new DetailsEntity();
+////        prviSet.pripadaVaji = 2;
+////        prviSet.pripadaWorkoutu = 1;
+////        prviSet.setNo = 1;
+////        prviSet.reps = 10;
+////        prviSet.weight = 400;
+////        db.detailsDAO().insert(prviSet);
+//    }
 
     private NavigationBarView.OnItemSelectedListener bottomNavMethod = item -> {
         Fragment fragment = null;

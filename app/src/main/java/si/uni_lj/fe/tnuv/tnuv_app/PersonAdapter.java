@@ -15,11 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.MyViewHolder> {
+public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyViewHolder> {
     public ArrayList<Workout> workoutList;
     Context context;
 
-    public WorkoutAdapter(ArrayList<Workout> workoutList){
+    public PersonAdapter(ArrayList<Workout> workoutList){
         this.workoutList = workoutList;
     }
 
@@ -38,7 +38,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.MyViewHo
     //potem infatamo nas view kjer napisemo kaj se zgodi onCreate nasega viewHolderja
     @NonNull
     @Override
-    public WorkoutAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PersonAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.workout_card, parent, false);
         context = parent.getContext();
         return new MyViewHolder(itemView);
@@ -46,7 +46,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.MyViewHo
 
     //tuki setamo ime nase vaje, povezemo text na xmlju z array listom
     @Override
-    public void onBindViewHolder(@NonNull WorkoutAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PersonAdapter.MyViewHolder holder, int position) {
         System.out.println(workoutList.get(position).getIme());
         String imeW = workoutList.get(position).getIme();
         holder.nameTxt.setText(imeW);

@@ -67,7 +67,7 @@
         android:layout_width="414dp"
         android:layout_height="483dp"
         android:layout_margin="0dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:translationY="10dp"
         android:translationZ="10dp"
         app:cardBackgroundColor="@color/purple_cards"
@@ -77,6 +77,7 @@
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout2">
 
@@ -125,8 +126,8 @@
             android:layout_width="300dp"
             android:layout_height="200dp"
             android:layout_gravity="center|bottom"
-            android:layout_marginBottom="25dp"
-            android:layout_marginTop="100dp" />
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="25dp" />
 
 
     </androidx.cardview.widget.CardView>
