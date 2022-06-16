@@ -14,9 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.MyViewHolder> {
+
     public ArrayList<Workout> workoutList;
     Context context;
 
+    //constructor
     public WorkoutAdapter(ArrayList<Workout> workoutList){
         this.workoutList = workoutList;
     }
@@ -45,7 +47,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.MyViewHo
     //tuki setamo ime nase vaje, povezemo text na xmlju z array listom
     @Override
     public void onBindViewHolder(@NonNull WorkoutAdapter.MyViewHolder holder, int position) {
-        System.out.println(workoutList.get(position).getIme());
+//        System.out.println(workoutList.get(position).getIme());
         String imeW = workoutList.get(position).getIme();
         holder.nameTxt.setText(imeW);
 
@@ -61,7 +63,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.MyViewHo
     //setamo item count na dolzino arraylista
     @Override
     public int getItemCount() {
-        System.out.println(workoutList.size());
+//        System.out.println(workoutList.size());
         return workoutList.size();
     }
 }

@@ -4,6 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WorkoutPodrobnosti">
+    tools:context=".WorkoutPodrobnosti"
+    android:background="@color/bcg">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:id="@+id/izbranWorkout"
+        >
+    </TextView>
+
+    <com.google.android.material.button.MaterialButton
+        app:cornerRadius="25dp"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/purple_blue"
+        android:id="@+id/backBtn"
+        android:gravity="center"
+        app:elevation="0dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:icon="@drawable/back_arrow"
+
+        />
+
+    <com.google.android.material.button.MaterialButton
+        app:cornerRadius="25dp"
+        android:layout_width="190dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="30dp"
+        android:text="start workout"
+        android:backgroundTint="@color/pinky"
+        android:id="@+id/startButn"
+        android:gravity="center"
+        app:elevation="0dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/izbranWorkout"
+        android:layout_marginTop="60dp"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

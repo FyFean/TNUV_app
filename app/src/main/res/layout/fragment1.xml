@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-    android:background="@color/bcg">
 
 
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/recyclerView"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    />
-</RelativeLayout>
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/bcg"
+    android:id="@+id/zgorniLayout"
+    >
+
+    <com.google.android.material.button.MaterialButton
+        app:cornerRadius="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="3dp"
+            android:backgroundTint="@color/purple_blue"
+            android:id="@+id/StartWrk"
+            android:gravity="center"
+            app:elevation="0dp"
+            android:text="Start an empty workout"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/StartWrk"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

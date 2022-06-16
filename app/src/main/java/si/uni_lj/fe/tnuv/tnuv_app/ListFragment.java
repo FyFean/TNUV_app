@@ -125,7 +125,7 @@ public class ListFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
 
         // 3. create an adapter
-        adapter = new VajaAdapter(listVaj);
+        adapter = new VajaAdapter(listVaj, true);
 
         // 4. set adapter
         recyclerView.setAdapter(adapter);

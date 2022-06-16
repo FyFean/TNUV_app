@@ -26,6 +26,7 @@ public class TabFragment1 extends Fragment {
     WorkoutAdapter adapter;
 
 
+
     private void setVajaInfo() {
 
 //        ArrayList<Vaja> listVaj = new ArrayList<Vaja>();
@@ -44,34 +45,40 @@ public class TabFragment1 extends Fragment {
     }
 
     //v onStart se povezemo z bazo da dobimo vse workoute in updatamo adapter
+    //onStart se pozene za onCreate in onCreateView
     @Override
     public void onStart() {
+        System.out.println("mm takoj v OnStartu: " + listWorkoutov);
         super.onStart();
 
-        //thread implements interface runnable ki ima notr metodo run
-        new Thread(){
+        //onStart je klicana ko gremo v novo aktivnost workoutPodrobnosti, a pred tem ne klice OnCreateView torej je list se poln prejsnih elementov, zato jih zbrisemo in sam vsakic na nov povezujemo
+        listWorkoutov.clear();
 
-            @Override
-            public void run() {
-                //tole je sam link do baze and as far as i know u can call it multiple times
-                AppDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(), AppDatabase.class, "database-name").build();
+            //thread implements interface runnable ki ima notr metodo run
+            new Thread(){
 
-                List<WorkoutEntity> w = db.workoutDAO().getCustom();
+                @Override
+                public void run() {
+                    //tole je sam link do baze and as far as i know u can call it multiple times
+                    AppDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(), AppDatabase.class, "database-name").build();
 
-                for (int i = 0; i < w.size(); i++) {
-                    System.out.println("++ tab fragmt workouts: "+w.get(i).imeWorkouta );
-                }
+                    List<WorkoutEntity> w = db.workoutDAO().getCustom();
 
-                List<WorkoutVaje> wv = db.workoutVajeDAO().getWorkoutVaje();
-                for (int i = 0; i < wv.size(); i++) {
-                    for (int j = 0; j < wv.get(i).vajaEntityList.size(); j++) {
-                        System.out.println("++ tab fragmt povezava wokrouta: " +  wv.get(i).workoutEntity.imeWorkouta + ", z vajami: " + wv.get(i).vajaEntityList.get(j).imeVaje );
+                    for (int i = 0; i < w.size(); i++) {
+                        System.out.println("++ tab fragmt workouts: "+w.get(i).imeWorkouta );
                     }
+
+                    List<WorkoutVaje> wv = db.workoutVajeDAO().getWorkoutVaje();
+                    for (int i = 0; i < wv.size(); i++) {
+                        for (int j = 0; j < wv.get(i).vajaEntityList.size(); j++) {
+                            System.out.println("++ tab fragmt povezava wokrouta: " +  wv.get(i).workoutEntity.imeWorkouta + ", z vajami: " + wv.get(i).vajaEntityList.get(j).imeVaje );
+                        }
+                    }
+                    //vrne podatke v main thread
+                    getActivity().runOnUiThread( () -> setWorkoutAdapter(w, wv));
                 }
-                //vrne podatke v main thread
-                getActivity().runOnUiThread( () -> setWorkoutAdapter(w, wv));
-            }
-        }.start();
+            }.start();
+//
     }
 
     private void setWorkoutAdapter(List<WorkoutEntity> w, List<WorkoutVaje> wv ) {
@@ -97,9 +104,11 @@ public class TabFragment1 extends Fragment {
             }
         }
 
+        System.out.println("mm ko vrnemo podatke v mainThr list: " + listWorkoutov);
+        //holda reference na list ki ga posljes v adapter in opazuje ce se je ta list spremenil.
+        //Ko se naloada onStart in list dobi podatke (prej je biu prazen), adapter avtomatsko poserje podatke notr.
         adapter.notifyDataSetChanged();
 
-//        listVaj.add(new Vaja("Lundges", "Legs", R.drawable.dumbbell_icon));
 
     }
 
@@ -108,7 +117,7 @@ public class TabFragment1 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment1, container, false);
-
+        System.out.println("mm on Createview bi mogu bit list prazn: " + listWorkoutov);
         // 1. get a reference to recyclerView
         recyclerView = view.findViewById(R.id.recyclerView);
 

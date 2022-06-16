@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
         navigationBarView.setSelectedItemId(R.id.dumbbell);
 
-        getApplicationContext().deleteDatabase("database-name");
-        InsertDataInDB();
+//        getApplicationContext().deleteDatabase("database-name");
+//        InsertDataInDB();
 //        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
 
 
@@ -102,12 +102,32 @@ public class MainActivity extends AppCompatActivity {
         upperBody2.totalCals = 0;
         db.workoutDAO().insert(upperBody2);
 
+        WorkoutEntity leggo = new WorkoutEntity();
+        leggo.imeWorkouta = "Leg day";
+        leggo.isCustom = 0;
+        leggo.trajanje = 30;
+        leggo.totalCals = 0;
+        db.workoutDAO().insert(leggo);
+
+        WorkoutEntity leggo2 = new WorkoutEntity();
+        leggo2.imeWorkouta = "Leg day2";
+        leggo2.isCustom = 0;
+        leggo2.trajanje = 30;
+        leggo2.totalCals = 0;
+        db.workoutDAO().insert(leggo2);
+
+
         //povezemo upper body z vsemi vajami ki jih imamo
         for (int i = 0; i < db.vajeDao().getAll().size(); i++) {
             CrossRefVajaWorkout cr = new CrossRefVajaWorkout();
             cr.idWorkouta = 1;
             cr.idVaje = i;
             db.workoutVajeDAO().insert(cr);
+
+            CrossRefVajaWorkout cr2 = new CrossRefVajaWorkout();
+            cr2.idWorkouta = 3;
+            cr2.idVaje = i;
+            db.workoutVajeDAO().insert(cr2);
         }
 
 

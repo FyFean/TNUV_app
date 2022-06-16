@@ -17,9 +17,12 @@ import android.content.Context;
 public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> {
     public ArrayList<Vaja> listVaj;
     Context context;
+    public boolean hasPlus;
 
-    VajaAdapter(ArrayList<Vaja> listVaj){
+    //constructor
+    VajaAdapter(ArrayList<Vaja> listVaj, boolean hasPlus){
         this.listVaj = listVaj;
+        this.hasPlus = hasPlus;
     }
 
     //MyViewHolder defines kako bo izgledal posamezni element v seznamu
@@ -43,7 +46,12 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
     @NonNull
     @Override
     public VajaAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.vaje_card, parent, false);
+        View itemView;
+        if(!hasPlus){
+            itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.vaje_card_without_plus, parent, false);
+        }else{
+            itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.vaje_card, parent, false);
+        }
         context = parent.getContext();
         return new MyViewHolder(itemView);
     }
