@@ -13,6 +13,7 @@ import java.util.List;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.AppDatabase;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.CrossRefVajaWorkout;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.DetailsEntity;
+import si.uni_lj.fe.tnuv.tnuv_app.database2.PersonEntity;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.VajaEntity;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutEntity;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutVaje;
