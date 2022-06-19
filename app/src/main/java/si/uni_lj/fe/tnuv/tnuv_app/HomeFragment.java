@@ -153,7 +153,7 @@ public class HomeFragment extends Fragment{
             for (int j = 0; j < d.size(); j++) {
                 if (w.get(i).idWorkouta == d.get(j).pripadaWorkoutu) {
                     we = w.get(i);
-                    listWorkoutov.add(new Workout(we.imeWorkouta, we.trajanje, we.totalCals, list));
+                    listWorkoutov.add(new Workout(we.idWorkouta, we.imeWorkouta, we.trajanje, we.totalCals, list));
                 }
             }
 

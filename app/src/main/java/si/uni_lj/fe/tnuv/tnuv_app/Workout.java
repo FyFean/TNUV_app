@@ -6,16 +6,42 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 public class Workout implements Parcelable {
+    private int idWorkouta;
     private ArrayList<Vaja> vaje;
     private String ime;
     private int trajanje;
     private int totalCals;
 
-    public Workout(String ime, int trajanje, int totalCals, ArrayList<Vaja> vaje){
+    public Workout(int idWorkouta, String ime, int trajanje, int totalCals, ArrayList<Vaja> vaje){
+        this.idWorkouta = idWorkouta;
         this.ime = ime;
         this.trajanje = trajanje;
         this.totalCals = totalCals;
         this.vaje = vaje;
+    }
+
+    public void setIdWorkouta(int idWorkouta) {
+        this.idWorkouta = idWorkouta;
+    }
+
+    public void setTrajanje(int trajanje) {
+        this.trajanje = trajanje;
+    }
+
+    public void setTotalCals(int totalCals) {
+        this.totalCals = totalCals;
+    }
+
+    public int getIdWorkouta() {
+        return idWorkouta;
+    }
+
+    public int getTrajanje() {
+        return trajanje;
+    }
+
+    public int getTotalCals() {
+        return totalCals;
     }
 
     protected Workout(Parcel in) {

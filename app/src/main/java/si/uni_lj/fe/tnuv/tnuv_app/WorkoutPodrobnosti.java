@@ -64,14 +64,15 @@ public class WorkoutPodrobnosti extends AppCompatActivity implements View.OnClic
         myAwesomeTextView = (TextView)findViewById(R.id.izbranWorkout);
         myAwesomeTextView.setText(clickedWorkout.getIme());
 
-        // ADAPTER PART1. get a reference to recyclerView
+        // ADAPTER PART
+        // 1. get a reference to recyclerView
         recyclerView = findViewById(R.id.recyclerView);
 
         // 2. set layoutManger
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // 3. create an adapter
-        adapter = new VajaAdapter(clickedWorkout.getVaje(), false);
+        adapter = new VajaAdapter(clickedWorkout.getVaje(), null,false);
 
         // 4. set adapter
         recyclerView.setAdapter(adapter);

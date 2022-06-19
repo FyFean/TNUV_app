@@ -95,10 +95,10 @@ public class TabFragment1 extends Fragment {
                     ArrayList<Vaja> listVaj = new ArrayList<Vaja>();
                     for (int k = 0; k < wv.get(j).vajaEntityList.size(); k++) {
                         VajaEntity v = wv.get(j).vajaEntityList.get(k);
-                        listVaj.add(new Vaja(v.imeVaje, v.muscleG, R.drawable.dumbbell_icon, v.desc, v.cals));
+                        listVaj.add(new Vaja(v.idVaje, v.imeVaje, v.muscleG, R.drawable.dumbbell_icon, v.desc, v.cals));
 //                        TODO: calculateTotalCals();
                     }
-                    listWorkoutov.add(new Workout(we.imeWorkouta, we.trajanje, we.totalCals, listVaj));
+                    listWorkoutov.add(new Workout(we.idWorkouta, we.imeWorkouta, we.trajanje, we.totalCals, listVaj));
                 }
 
             }
@@ -117,7 +117,7 @@ public class TabFragment1 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment1, container, false);
-        System.out.println("mm on Createview bi mogu bit list prazn: " + listWorkoutov);
+
         // 1. get a reference to recyclerView
         recyclerView = view.findViewById(R.id.recyclerView);
 

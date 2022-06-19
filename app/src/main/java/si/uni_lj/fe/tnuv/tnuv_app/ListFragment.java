@@ -17,6 +17,7 @@ import java.util.List;
 
 import si.uni_lj.fe.tnuv.tnuv_app.database2.AppDatabase;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.VajaEntity;
+import si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutEntity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +29,9 @@ public class ListFragment extends Fragment {
     private RecyclerView recyclerView;
 
     ArrayList<Vaja> listVaj = new ArrayList<Vaja>();
+
+    //tega ustvarimo zato ker moramo v popUp window dat tudi custom workoute, torej v VajaAdapter posiljamo se listWorkoutov
+    ArrayList<Workout> listWorkoutov = new ArrayList<Workout>();
 
     VajaAdapter adapter;
 
@@ -85,27 +89,28 @@ public class ListFragment extends Fragment {
                 AppDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(), AppDatabase.class, "database-name").build();
 
                 List<VajaEntity> v = db.vajeDao().getAll();
-
-                for (int i = 0; i < v.size(); i++) {
-                    System.out.println("** "+v.get(i).imeVaje+", " +v.get(i).idVaje);
-                }
+                List<WorkoutEntity> we = db.workoutDAO().getCustom();
 
                 //vrne podatke v main thread
-                getActivity().runOnUiThread( () -> setVajaAdapter(v));
+                getActivity().runOnUiThread( () -> setVajaAdapter(v, we));
             }
         }.start();
     }
 
-    private void setVajaAdapter(List<VajaEntity> vaje) {
+    private void setVajaAdapter(List<VajaEntity> vaje, List<WorkoutEntity> we ) {
         for (int i = 0; i < vaje.size(); i++) {
             VajaEntity vajaE = vaje.get(i);
-            System.out.println(vajaE.idVaje);
-            listVaj.add(new Vaja(vajaE.imeVaje, vajaE.muscleG, R.drawable.dumbbell_icon, vajaE.desc, vajaE.cals));
+            listVaj.add(new Vaja(vajaE.idVaje, vajaE.imeVaje, vajaE.muscleG, R.drawable.dumbbell_icon, vajaE.desc, vajaE.cals));
+        }
+        for (int i = 0; i < we.size(); i++) {
+            WorkoutEntity we_posamezna = we.get(i);
+
+            //nima vaj ker jih ne potrebujemo
+            listWorkoutov.add(new Workout(we_posamezna.idWorkouta, we_posamezna.imeWorkouta, we_posamezna.trajanje, we_posamezna.totalCals, null));
         }
 
         adapter.notifyDataSetChanged();
 
-//        listVaj.add(new Vaja("Lundges", "Legs", R.drawable.dumbbell_icon));
 
     }
 
@@ -125,7 +130,7 @@ public class ListFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
 
         // 3. create an adapter
-        adapter = new VajaAdapter(listVaj, true);
+        adapter = new VajaAdapter(listVaj, listWorkoutov, true);
 
         // 4. set adapter
         recyclerView.setAdapter(adapter);

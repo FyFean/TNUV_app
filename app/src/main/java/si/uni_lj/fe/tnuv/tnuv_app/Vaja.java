@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Vaja implements Parcelable {
+    private int idVaje;
     private String imeVaje;
     private String muscleG;
     private int imgVaje;
@@ -11,7 +12,8 @@ public class Vaja implements Parcelable {
     private int cals;
 
 
-    public Vaja(String imeVaje, String muscleG, int imgVaje, String desc, int cals){
+    public Vaja(int idVaje, String imeVaje, String muscleG, int imgVaje, String desc, int cals){
+        this.idVaje = idVaje;
         this.imeVaje = imeVaje;
         this.muscleG = muscleG;
         this.imgVaje = imgVaje;
@@ -23,6 +25,30 @@ public class Vaja implements Parcelable {
         imeVaje = in.readString();
         muscleG = in.readString();
         imgVaje = in.readInt();
+    }
+
+    public void setIdVaje(int idVaje) {
+        this.idVaje = idVaje;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public void setCals(int cals) {
+        this.cals = cals;
+    }
+
+    public int getIdVaje() {
+        return idVaje;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public int getCals() {
+        return cals;
     }
 
     public static final Creator<Vaja> CREATOR = new Creator<Vaja>() {
