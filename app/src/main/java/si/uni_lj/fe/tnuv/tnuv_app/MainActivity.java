@@ -72,35 +72,42 @@ public class MainActivity extends AppCompatActivity {
         VajaEntity squats = new VajaEntity();
         squats.imeVaje = "Squats";
         squats.muscleG = "Legs";
-        squats.imgVaje = 1;
+        squats.imgVaje = R.drawable.ic_overheadpress;
         squats.cals = 20;
         db.vajeDao().insert(squats);
+
+        VajaEntity nadGlavni_vzdig = new VajaEntity();
+        nadGlavni_vzdig.imeVaje = "Nadglavni vzdig";
+        nadGlavni_vzdig.muscleG = "Ramena";
+        nadGlavni_vzdig.imgVaje = R.drawable.ic_overheadpress;
+        nadGlavni_vzdig.cals = 20;
+        db.vajeDao().insert(nadGlavni_vzdig);
 
         VajaEntity lundges = new VajaEntity();
         lundges.imeVaje = "Lundges";
         lundges.muscleG = "Legs";
-        lundges.imgVaje = 2;
+        lundges.imgVaje = R.drawable.ic_overheadpress;
         lundges.cals = 20;
         db.vajeDao().insert(lundges);
 
         VajaEntity hipThr = new VajaEntity();
         hipThr.imeVaje = "Hip thrusts";
         hipThr.muscleG = "Legs";
-        hipThr.imgVaje = 3;
+        hipThr.imgVaje = R.drawable.ic_overheadpress;
         hipThr.cals = 20;
         db.vajeDao().insert(hipThr);
 
         VajaEntity good_morning = new VajaEntity();
         good_morning.imeVaje = "Good morning";
         good_morning.muscleG = "Legs";
-        good_morning.imgVaje = 4;
+        good_morning.imgVaje = R.drawable.ic_overheadpress;
         good_morning.cals= 11;
         db.vajeDao().insert(good_morning);
 
         VajaEntity romanian_deadlift = new VajaEntity();
         romanian_deadlift.imeVaje = "Romanian deadlift";
         romanian_deadlift.muscleG = "Legs";
-        romanian_deadlift.imgVaje = 5;
+        romanian_deadlift.imgVaje = R.drawable.ic_overheadpress;
         romanian_deadlift.cals= 33;
         db.vajeDao().insert(romanian_deadlift);
 

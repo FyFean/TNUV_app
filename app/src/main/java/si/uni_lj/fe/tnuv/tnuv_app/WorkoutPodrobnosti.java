@@ -72,7 +72,7 @@ public class WorkoutPodrobnosti extends AppCompatActivity implements View.OnClic
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // 3. create an adapter
-        adapter = new VajaAdapter(clickedWorkout.getVaje(), null,false);
+        adapter = new VajaAdapter(clickedWorkout.getVaje(), null,0);
 
         // 4. set adapter
         recyclerView.setAdapter(adapter);

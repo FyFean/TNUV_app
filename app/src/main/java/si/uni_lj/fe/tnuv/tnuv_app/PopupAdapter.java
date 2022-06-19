@@ -17,6 +17,7 @@ import java.util.List;
 
 import si.uni_lj.fe.tnuv.tnuv_app.database2.AppDatabase;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.CrossRefVajaWorkout;
+import si.uni_lj.fe.tnuv.tnuv_app.database2.DetailsEntity;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.VajaEntity;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutEntity;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutVaje;
@@ -66,6 +67,7 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.MyViewHolder
                         cr.idWorkouta = listCustWorkoutov.get(position).getIdWorkouta();
                         cr.idVaje = clickedVaja.getIdVaje();
                         db.workoutVajeDAO().insert(cr);
+
 
 //                        List<WorkoutVaje> vv2 = db.workoutVajeDAO().getWorkoutVaje();
 //                        for (int i = 0; i < vv2.size(); i++) {

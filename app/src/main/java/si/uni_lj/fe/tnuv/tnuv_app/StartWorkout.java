@@ -25,8 +25,9 @@ public class StartWorkout extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.finishBtn:
-                super.onBackPressed();
                 System.out.println("Finish button pressed!");
+                super.onBackPressed();
+
                 break;
 //            case R.id.startButn:
 //                Intent intent = new Intent(context, StartWorkout.class);
@@ -51,9 +52,9 @@ public class StartWorkout extends AppCompatActivity implements View.OnClickListe
 
         context  = this;
 
-        //FINISH BUTTON
-//        finishBtn = findViewById(R.id.backBtn);
-//        finishBtn.setOnClickListener(this);
+//        FINISH BUTTON
+        finishBtn = findViewById(R.id.finishBtn);
+        finishBtn.setOnClickListener(this);
 
         //SET TEXT ZA IZBRAN WORKOUT
         myAwesomeTextView = (TextView)findViewById(R.id.izbranWorkout);
@@ -66,9 +67,12 @@ public class StartWorkout extends AppCompatActivity implements View.OnClickListe
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // 3. create an adapter
-        adapter = new VajaAdapter(clickedWorkout.getVaje(), false);
+        adapter = new VajaAdapter(clickedWorkout.getVaje(),null, 2);
 
         // 4. set adapter
         recyclerView.setAdapter(adapter);
     }
+
+
+
 }

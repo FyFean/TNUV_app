@@ -28,15 +28,15 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
     public ArrayList<Vaja> listVaj;
     public ArrayList<Workout> listWorkoutov;
 
-    public boolean hasPlus;
+    public int cardType;
     Context context;
     LayoutInflater ly;
 
     //constructor
-    VajaAdapter(ArrayList<Vaja> listVaj,ArrayList<Workout> listWorkoutov, boolean hasPlus){
+    VajaAdapter(ArrayList<Vaja> listVaj,ArrayList<Workout> listWorkoutov, int cardType){
         this.listVaj = listVaj;
         this.listWorkoutov = listWorkoutov;
-        this.hasPlus = hasPlus;
+        this.cardType = cardType;
     }
 
     //MyViewHolder defines kako bo izgledal posamezni element v seznamu
@@ -64,13 +64,23 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
     @Override
     public VajaAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView;
-        if(!hasPlus){
-            //ce nimamo plusa smo v start workout tabu in checkiramo workout podrobnosti aka vaje ki jih ima
-            itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.vaje_card_without_plus, parent, false);
-        }else{
-            //ce mamo plus smo v listu vaj kjer jih lahko dodajamo
-            itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.vaje_card, parent, false);
+
+        switch(cardType) {
+            case(0):
+                //ce nimamo plusa smo v start workout tabu in checkiramo workout podrobnosti aka vaje ki jih ima
+                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.vaje_card_without_plus, parent, false);
+                break;
+            case(1):
+                //ce mamo plus smo v listu vaj kjer jih lahko dodajamo
+                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.vaje_card, parent, false);
+                break;
+            case(2):
+                itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.vaje_card2, parent, false);
+                break;
+            default:
+                itemView=null;
         }
+
         ly = LayoutInflater.from(parent.getContext());
         context = parent.getContext();
 
@@ -89,7 +99,9 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
         holder.muscleTxt.setText(muscleV);
         holder.img.setImageResource(imgV);
 
-        if(hasPlus) {
+        System.out.println("imgV"+imgV);
+
+        if(cardType == 1) {
             //P O P U P  W I N D O W
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override

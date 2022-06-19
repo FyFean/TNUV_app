@@ -62,42 +62,47 @@ public class SettingsMine extends AppCompatActivity implements View.OnClickListe
 
                                 //če je uporabnik vnesel novo ime in priimek - edittext ni prazen, kliči funkcijo, ki updejta ta field v bazi
                                 if (ip.matches("") == false) {
+                                    System.out.println("nova oseba shranjena");
                                     db.personDAO().updateImePriimek(ip, idOsebe);
+                                    System.out.println("Nova oseba"+db.personDAO().getAll().get(0).imePriimek);
                                 }
 
                                 String t = teza.getText().toString();
-                                int tInt =Integer.parseInt(t);
+
 
                                 if (t.matches("") == false) {
+                                    int tInt =Integer.parseInt(t);
                                     db.personDAO().updateTeza(tInt, idOsebe);
                                 }
 
                                 String v = visina.getText().toString();
-                                int vInt =Integer.parseInt(v);
+
 
                                 if (v.matches("") == false) {
+                                    int vInt =Integer.parseInt(v);
                                     db.personDAO().updateVisina(vInt, idOsebe);
                                 }
 
                                 String zelCal = zeljeneKalorije.getText().toString();
-                                int zelCalInt =Integer.parseInt(zelCal);
+
 
                                 if (zelCal.matches("") == false) {
+                                    int zelCalInt =Integer.parseInt(zelCal);
                                     db.personDAO().updateZelCal(zelCalInt, idOsebe);
                                 }
 
                                 String zelCas = zeljenCas.getText().toString();
-                                int zelCasInt =Integer.parseInt(zelCas);
 
                                 if (zelCas.matches("") == false) {
+                                    int zelCasInt =Integer.parseInt(zelCas);
                                     db.personDAO().updateZelCas(zelCasInt, idOsebe);
                                 }
 
-                                String sp = spol.getSelectedItem().toString();
-
-                                if (sp.matches("") == false) {
-                                    db.personDAO().updateSpol(sp, idOsebe);
-                                }
+//                                String sp = spol.getSelectedItem().toString();
+//
+//                                if (sp.matches("") == false) {
+//                                    db.personDAO().updateSpol(sp, idOsebe);
+//                                }
                             }
                         });
 
@@ -112,6 +117,8 @@ public class SettingsMine extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_settings);
         //clickedWorkout = getIntent().getParcelableExtra("mylist");
+        saveBtn = findViewById(R.id.saveBtn);
+        saveBtn.setOnClickListener(this);
         context = this;
 
     }

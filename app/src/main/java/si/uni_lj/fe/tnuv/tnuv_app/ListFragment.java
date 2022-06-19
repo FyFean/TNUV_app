@@ -100,7 +100,7 @@ public class ListFragment extends Fragment {
     private void setVajaAdapter(List<VajaEntity> vaje, List<WorkoutEntity> we ) {
         for (int i = 0; i < vaje.size(); i++) {
             VajaEntity vajaE = vaje.get(i);
-            listVaj.add(new Vaja(vajaE.idVaje, vajaE.imeVaje, vajaE.muscleG, R.drawable.dumbbell_icon, vajaE.desc, vajaE.cals));
+            listVaj.add(new Vaja(vajaE.idVaje, vajaE.imeVaje, vajaE.muscleG, vajaE.imgVaje, vajaE.desc, vajaE.cals));
         }
         for (int i = 0; i < we.size(); i++) {
             WorkoutEntity we_posamezna = we.get(i);
@@ -130,7 +130,7 @@ public class ListFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
 
         // 3. create an adapter
-        adapter = new VajaAdapter(listVaj, listWorkoutov, true);
+        adapter = new VajaAdapter(listVaj, listWorkoutov, 1);
 
         // 4. set adapter
         recyclerView.setAdapter(adapter);

@@ -291,26 +291,26 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="280dp"
         android:gravity="left"
         android:orientation="horizontal"
-        android:translationY="22dp"
-        android:scaleX="0.95">
+        android:scaleX="0.95"
+        android:translationY="22dp">
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".HomeFragment"
-            android:background="@color/white">
+            android:background="@color/white"
+            tools:context=".HomeFragment">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                />
+                android:layout_height="300dp" />
         </RelativeLayout>
     </LinearLayout>
     <LinearLayout android:orientation="horizontal"
