@@ -120,6 +120,14 @@ public class MainActivity extends AppCompatActivity {
         upperBody2.pripadaOsebi = 1;
         db.workoutDAO().insert(upperBody2);
 
+        WorkoutEntity upperBody3 = new WorkoutEntity();
+        upperBody3.imeWorkouta = "Upper body 3";
+        upperBody3.isCustom = 1;
+        upperBody3.trajanje = 40;
+        upperBody3.totalCals = 0;
+        upperBody3.pripadaOsebi = 1;
+        db.workoutDAO().insert(upperBody3);
+
         WorkoutEntity leggo = new WorkoutEntity();
         leggo.imeWorkouta = "Leg day";
         leggo.isCustom = 0;
@@ -144,10 +152,6 @@ public class MainActivity extends AppCompatActivity {
             cr.idVaje = i;
             db.workoutVajeDAO().insert(cr);
 
-            CrossRefVajaWorkout cr2 = new CrossRefVajaWorkout();
-            cr2.idWorkouta = 3;
-            cr2.idVaje = i;
-            db.workoutVajeDAO().insert(cr2);
         }
 
 

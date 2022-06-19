@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <style name="myListPopupWindow" parent="Widget.MaterialComponents.PopupMenu.ListPopupWindow">-->
+<!--        <item name="android:popupBackground">@drawable/popup_card</item>-->
+<!--    </style>-->
+    <style name="myListPopupWindow" parent="Widget.AppCompat.PopupWindow" >
+        <item name="android:popupBackground">@drawable/popup_card</item>
+    </style>
+</resources>
