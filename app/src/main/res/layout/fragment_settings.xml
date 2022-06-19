@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".SettingsMine"
+    >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout2"
@@ -57,7 +60,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:translationY="100dp"
-        app:cardBackgroundColor="@color/purple_cards"
+        app:cardBackgroundColor="@color/theDarkest"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
         app:cardMaxElevation="12dp"
@@ -80,7 +83,7 @@
             android:textSize="20dp"/>
 
         <EditText
-            android:id="@+id/phone"
+            android:id="@+id/nameSurname"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="Vnesi novo ime in priimek!"
@@ -100,7 +103,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:translationY="210dp"
-        app:cardBackgroundColor="@color/purple_cards"
+        app:cardBackgroundColor="@color/theDarkest"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
         app:cardMaxElevation="12dp"
@@ -143,7 +146,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:translationY="320dp"
-        app:cardBackgroundColor="@color/purple_cards"
+        app:cardBackgroundColor="@color/theDarkest"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
         app:cardMaxElevation="12dp"
@@ -186,7 +189,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:translationY="430dp"
-        app:cardBackgroundColor="@color/purple_cards"
+        app:cardBackgroundColor="@color/theDarkest"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
         app:cardMaxElevation="12dp"
@@ -209,7 +212,7 @@
             android:textSize="20dp"/>
 
         <EditText
-            android:id="@+id/kalorije"
+            android:id="@+id/zeljeneCal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="Vnesi željeni cilj kalorij (kcal)!"
@@ -229,7 +232,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:translationY="540dp"
-        app:cardBackgroundColor="@color/purple_cards"
+        app:cardBackgroundColor="@color/theDarkest"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
         app:cardMaxElevation="12dp"
@@ -252,7 +255,7 @@
             android:textSize="20dp"/>
 
         <EditText
-            android:id="@+id/cas"
+            android:id="@+id/casTel"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="Vnesi željeni cilj časa telovadbe (min)!"
@@ -273,7 +276,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:translationY="650dp"
-        app:cardBackgroundColor="@color/purple_cards"
+        app:cardBackgroundColor="@color/theDarkest"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
         app:cardMaxElevation="12dp"
@@ -296,7 +299,7 @@
             android:textSize="20dp"/>
 
         <Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_dropdown"
@@ -304,9 +307,27 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:textColor="@color/white"/>
+            />
 
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        app:cornerRadius="25dp"
+        android:layout_width="190dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="30dp"
+        android:text="shrani"
+        android:backgroundTint="@color/pinky"
+        android:id="@+id/saveBtn"
+        android:gravity="center"
+        app:elevation="0dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

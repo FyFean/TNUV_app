@@ -18,6 +18,9 @@
             android:label="@string/title_activity_workout_details"
             android:theme="@style/Theme.TNUV_app.NoActionBar" />
         <activity
+            android:name=".SettingsMine"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

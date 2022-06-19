@@ -1,5 +1,7 @@
 package si.uni_lj.fe.tnuv.tnuv_app;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,15 +13,14 @@ import androidx.room.Room;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import si.uni_lj.fe.tnuv.tnuv_app.database2.AppDatabase;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.DetailsEntity;
-import si.uni_lj.fe.tnuv.tnuv_app.database2.VajaEntity;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutEntity;
-import si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutVaje;
 
 
 /**
@@ -27,7 +28,10 @@ import si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutVaje;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment{
+
+    Context context;
+    private Button settingsBtn;
 
     private RecyclerView recyclerView;
     ArrayList<Workout> listWorkoutov = new ArrayList<Workout>();
@@ -45,6 +49,23 @@ public class HomeFragment extends Fragment {
     public HomeFragment() {
         // Required empty public constructor
     }
+
+    // onClick za settings button
+//    @Override
+//    public void onClick(View v) {
+//        System.out.println("setinsooooooooo");
+//        switch (v.getId()) {
+//            case R.id.settingsBtn:
+//                Intent intent123 = new Intent(context, SettingsMine.class);
+//                System.out.println("pritisnjen settings button");
+//                //TODO: a rabim tle dejansko kej passsat
+//                //intent.putExtra("clickedWorkout", clickedWorkout);
+//                startActivity(intent123);
+//            default:
+//                break;
+//        }
+//
+//    }
 
     /**
      * Use this factory method to create a new instance of
@@ -71,6 +92,13 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        context = getActivity();
+
+
+        //nastavitev datuma:
+//        String currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
+//        datum = (Button)findViewById(R.id.saveBtn);
+//        textView.setText(currentDateTimeString);
     }
     //tle dodati še nove stvari,vaje majp še opis itd.
 //    private void setVajaInfo() {
@@ -85,6 +113,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
+
 
         //thread implements interface runnable ki ima notr metodo run
         new Thread(){
@@ -146,11 +176,29 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
+
         // 0. Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
+        settingsBtn = rootView.findViewById(R.id.settingsBtn);
+        settingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent123 = new Intent(getActivity(), SettingsMine.class);
+                System.out.println("pritisnjen settings button");
+                //TODO: a rabim tle dejansko kej passsat
+                //intent.putExtra("clickedWorkout", clickedWorkout);
+                startActivity(intent123);
+            }
+        });
+
+
 
         // 1. get a reference to recyclerView
         recyclerView = rootView.findViewById(R.id.recyclerView);
+
         //setVajaInfo();
 
         // 2. set layoutManger

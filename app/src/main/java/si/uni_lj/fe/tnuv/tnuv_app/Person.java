@@ -9,6 +9,7 @@ import si.uni_lj.fe.tnuv.tnuv_app.Vaja;
 import si.uni_lj.fe.tnuv.tnuv_app.Workout;
 
 public class Person implements Parcelable {
+    private int idPerson;
     private String imePriimek;
     private String spol;
     private int caloriesGoal;
@@ -20,7 +21,8 @@ public class Person implements Parcelable {
     private ArrayList<Workout> personalWorkouts;
     private ArrayList<Workout> pastWorkouts;
 
-    public Person(String imePriimek, String spol, int caloriesGoal, int timeGoal, int bodyWeight, int bodyHeight, int timeDone, int caloriesDone, ArrayList<Workout> personalWorkouts, ArrayList<Workout> pastWorkouts){
+    public Person(int idPerson, String imePriimek, String spol, int caloriesGoal, int timeGoal, int bodyWeight, int bodyHeight, int timeDone, int caloriesDone, ArrayList<Workout> personalWorkouts, ArrayList<Workout> pastWorkouts){
+        this.idPerson = idPerson;
         this.imePriimek = imePriimek;
         this.spol = spol;
         this.caloriesGoal = caloriesGoal;
@@ -57,6 +59,14 @@ public class Person implements Parcelable {
             return new Person[size];
         }
     };
+
+    public int getIdPerson() {
+        return idPerson;
+    }
+
+    public void setIdPerson(int idPerson) {
+        this.idPerson = idPerson;
+    }
 
     public String getImePriimek() {
         return imePriimek;
