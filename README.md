@@ -2,20 +2,33 @@
 
 
 TODO:
-povezat insert fielde v start workout z bazo M
-make finish button appear again P
-back button na settings M  --> done -> shrani podatke, ne gre nazaj, mi ni
-back button na start workout P
-naj iz baze vlečejo na profile informacije M  --> done, samo bmi neki jebe
+~~povezat insert fielde v start workout z bazo M~~
 ~~make finish button appear again P~~
-back button na settings M
+back button na settings M  --> done -> shrani podatke, ne gre nazaj, mi ni
 ~~back button na start workout P~~
-naj iz baze vlečejo na profile informacije M
+~~naj iz baze vlečejo na profile informacije M  --> done, samo bmi neki jebe~~ neki se spremenit po istem kopitu
+~~make finish button appear again P~~
+back button na settings M - super back page whatever
+dodaj klic baze na separate thread P/M
+~~back button na start workout P~~
+~~naj iz baze vlečejo na profile informacije M~~
 start an empty workout P
+
+~~new thread za settings in start workout P/m --doneneee~~
+
+
+če bo cajt
+BO CAJT
 povezava description z vajami P
-new thread za settings in start workout P/m
+dodaj video na description M
 
 
+preveri ali baza obstaja, da se samo prvič zažene 
+    -tle se more klicat json M
+    -tle se more ce se ni baze poklicat longin screen 
+        -make a login screen + backend M 
+
+treba je dodat scroll wheel za settingse - Petra tries makes matic knows 
 
 
 

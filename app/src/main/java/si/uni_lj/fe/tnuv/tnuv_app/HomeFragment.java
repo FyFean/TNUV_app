@@ -126,6 +126,7 @@ public class HomeFragment extends Fragment{
     @Override
     public void onStart() {
         super.onStart();
+        System.out.println("Baza je klicana!");
 
 
 
@@ -150,6 +151,41 @@ public class HomeFragment extends Fragment{
                     System.out.println("total calories details "+w.get(i).totalCals );
                     System.out.println("poizvedba " + d);
                 }
+
+                //klic baze
+                //AppDatabase db = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
+                List<PersonEntity> p = db.personDAO().getAll();
+                int idOsebe = p.get(0).idPerson;
+
+//                //nastavitev datuma
+//                String datum = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
+//                date = (TextView)rootView.findViewById(R.id.datumProfil);
+//                date.setText(datum);
+
+
+                //nastavitev imena
+
+                imPr.setText(p.get(0).imePriimek);
+//
+//                //nastavitev kalorij
+//                calories = (TextView)rootView.findViewById(R.id.caloriesText);
+//                calories.setText(p.get(0).caloriesDone+"/"+p.get(0).caloriesGoal + " kcal");
+//
+//                //nastavitev časa
+//                time = (TextView)rootView.findViewById(R.id.timeText);
+//                time.setText(p.get(0).timeDone+"/"+p.get(0).timeGoal + " min");
+//
+//                //nastavitev teže
+//                weight = (TextView)rootView.findViewById(R.id.weigth);
+//                weight.setText(p.get(0).bodyWeight+" kg");
+//
+//                //nastavitev BMI
+//                BMI = (TextView)rootView.findViewById(R.id.BMI);
+//                int izracun = p.get(0).bodyWeight/(p.get(0).bodyHeight*p.get(0).bodyHeight);
+//                String izracunStr = String.valueOf(izracun);
+//                BMI.setText(izracunStr);
+
+
 
                 //vrne podatke v main thread
                 getActivity().runOnUiThread( () -> setWorkoutAdapter(w,d));
@@ -206,38 +242,38 @@ public class HomeFragment extends Fragment{
             }
         });
 
-        //klic baze
-        AppDatabase db = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
-        List<PersonEntity> p = db.personDAO().getAll();
-        int idOsebe = p.get(0).idPerson;
-
-        //nastavitev datuma
-        String datum = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
-        date = (TextView)rootView.findViewById(R.id.datumProfil);
-        date.setText(datum);
-
-
-        //nastavitev imena
+//        //klic baze
+//        AppDatabase db = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
+//        List<PersonEntity> p = db.personDAO().getAll();
+//        int idOsebe = p.get(0).idPerson;
+//
+//        //nastavitev datuma
+//        String datum = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
+//        date = (TextView)rootView.findViewById(R.id.datumProfil);
+//        date.setText(datum);
+//
+//
+//        //nastavitev imena
         imPr = (TextView)rootView.findViewById(R.id.imePriimek);
-        imPr.setText(p.get(0).imePriimek);
-
-        //nastavitev kalorij
-        calories = (TextView)rootView.findViewById(R.id.caloriesText);
-        calories.setText(p.get(0).caloriesDone+"/"+p.get(0).caloriesGoal + " kcal");
-
-        //nastavitev časa
-        time = (TextView)rootView.findViewById(R.id.timeText);
-        time.setText(p.get(0).timeDone+"/"+p.get(0).timeGoal + " min");
-
-        //nastavitev teže
-        weight = (TextView)rootView.findViewById(R.id.weigth);
-        weight.setText(p.get(0).bodyWeight+" kg");
-
-        //nastavitev BMI
-        BMI = (TextView)rootView.findViewById(R.id.BMI);
-        int izracun = p.get(0).bodyWeight/(p.get(0).bodyHeight*p.get(0).bodyHeight);
-        String izracunStr = String.valueOf(izracun);
-        BMI.setText(izracunStr);
+//        imPr.setText(p.get(0).imePriimek);
+//
+//        //nastavitev kalorij
+//        calories = (TextView)rootView.findViewById(R.id.caloriesText);
+//        calories.setText(p.get(0).caloriesDone+"/"+p.get(0).caloriesGoal + " kcal");
+//
+//        //nastavitev časa
+//        time = (TextView)rootView.findViewById(R.id.timeText);
+//        time.setText(p.get(0).timeDone+"/"+p.get(0).timeGoal + " min");
+//
+//        //nastavitev teže
+//        weight = (TextView)rootView.findViewById(R.id.weigth);
+//        weight.setText(p.get(0).bodyWeight+" kg");
+//
+//        //nastavitev BMI
+//        BMI = (TextView)rootView.findViewById(R.id.BMI);
+//        int izracun = p.get(0).bodyWeight/(p.get(0).bodyHeight*p.get(0).bodyHeight);
+//        String izracunStr = String.valueOf(izracun);
+//        BMI.setText(izracunStr);
 
 
 

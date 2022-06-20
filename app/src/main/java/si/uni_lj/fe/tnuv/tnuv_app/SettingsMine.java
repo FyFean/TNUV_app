@@ -103,8 +103,12 @@ public class SettingsMine extends AppCompatActivity implements View.OnClickListe
 //                                    System.out.println("spol"+db.personDAO().getAll().get(0).spol);
                 }
 
-////                Intent intent = new Intent(context, HomeFragment.class);
-//////                                context.startActivity(intent);
+                super.onBackPressed();
+                break;
+
+
+//                Intent intent = new Intent(this, HomeFragment.class);
+//                startActivityForResult(intent);
 //
 //
 //                                        Intent intent123 = new Intent(this, HomeFragment.class);
