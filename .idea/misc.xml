@@ -5,6 +5,8 @@
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.1111111111111111" />
         <entry key="../../../../layout/custom_preview.xml" value="0.2520833333333333" />
+        <entry key="../../Library/Android/sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.2869446962828649" />
+        <entry key="../../Library/Android/sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.25951261222744765" />
         <entry key="app/src/main/res/drawable/done.xml" value="0.122" />
         <entry key="app/src/main/res/drawable/icon_1.xml" value="0.2415" />
         <entry key="app/src/main/res/drawable/list_icon.xml" value="0.2415" />

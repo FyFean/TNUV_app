@@ -14,12 +14,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import si.uni_lj.fe.tnuv.tnuv_app.database2.AppDatabase;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.DetailsEntity;
+import si.uni_lj.fe.tnuv.tnuv_app.database2.PersonEntity;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutEntity;
 
 
@@ -36,6 +40,13 @@ public class HomeFragment extends Fragment{
     private RecyclerView recyclerView;
     ArrayList<Workout> listWorkoutov = new ArrayList<Workout>();
     WorkoutAdapter adapter;
+    TextView imPr;
+    TextView calories;
+    TextView time;
+    TextView date;
+    TextView weight;
+    TextView BMI;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -95,10 +106,12 @@ public class HomeFragment extends Fragment{
         context = getActivity();
 
 
+
         //nastavitev datuma:
 //        String currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
 //        datum = (Button)findViewById(R.id.saveBtn);
 //        textView.setText(currentDateTimeString);
+
     }
     //tle dodati še nove stvari,vaje majp še opis itd.
 //    private void setVajaInfo() {
@@ -188,11 +201,44 @@ public class HomeFragment extends Fragment{
             public void onClick(View view) {
                 Intent intent123 = new Intent(getActivity(), SettingsMine.class);
                 System.out.println("pritisnjen settings button");
-                //TODO: a rabim tle dejansko kej passsat
                 //intent.putExtra("clickedWorkout", clickedWorkout);
                 startActivity(intent123);
             }
         });
+
+        //klic baze
+        AppDatabase db = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
+        List<PersonEntity> p = db.personDAO().getAll();
+        int idOsebe = p.get(0).idPerson;
+
+        //nastavitev datuma
+        String datum = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
+        date = (TextView)rootView.findViewById(R.id.datumProfil);
+        date.setText(datum);
+
+
+        //nastavitev imena
+        imPr = (TextView)rootView.findViewById(R.id.imePriimek);
+        imPr.setText(p.get(0).imePriimek);
+
+        //nastavitev kalorij
+        calories = (TextView)rootView.findViewById(R.id.caloriesText);
+        calories.setText(p.get(0).caloriesDone+"/"+p.get(0).caloriesGoal + " kcal");
+
+        //nastavitev časa
+        time = (TextView)rootView.findViewById(R.id.timeText);
+        time.setText(p.get(0).timeDone+"/"+p.get(0).timeGoal + " min");
+
+        //nastavitev teže
+        weight = (TextView)rootView.findViewById(R.id.weigth);
+        weight.setText(p.get(0).bodyWeight+" kg");
+
+        //nastavitev BMI
+        BMI = (TextView)rootView.findViewById(R.id.BMI);
+        int izracun = p.get(0).bodyWeight/(p.get(0).bodyHeight*p.get(0).bodyHeight);
+        String izracunStr = String.valueOf(izracun);
+        BMI.setText(izracunStr);
+
 
 
 

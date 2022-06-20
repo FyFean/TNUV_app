@@ -20,6 +20,8 @@ public class StartWorkout extends AppCompatActivity implements View.OnClickListe
     private Button finishBtn;
     Context context;
 
+
+
     // onClick za finish button
     @Override
     public void onClick(View v) {

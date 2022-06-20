@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         oseba1.spol = "F";
         oseba1.caloriesGoal = 700;
         oseba1.timeGoal = 50;
-        oseba1.bodyWeight = 60;
+        oseba1.bodyWeight = 55;
         oseba1.bodyHeight = 170;
         oseba1.timeDone = 0;
         oseba1.caloriesDone = 0;
