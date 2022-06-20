@@ -3,9 +3,9 @@
 
 TODO:
 povezat insert fielde v start workout z bazo M
-make finish button appear again P
+~~make finish button appear again P~~
 back button na settings M
-back button na start workout P
+~~back button na start workout P~~
 naj iz baze vlečejo na profile informacije M
 start an empty workout P
 povezava description z vajami P
