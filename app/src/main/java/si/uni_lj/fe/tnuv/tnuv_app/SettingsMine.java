@@ -26,6 +26,7 @@ public class SettingsMine extends AppCompatActivity implements View.OnClickListe
     Workout clickedWorkout;
     TextView myAwesomeTextView;
     private Button saveBtn;
+    private Button backBtn;
     Context context;
     EditText imePriimek;
     EditText teza;
@@ -42,66 +43,86 @@ public class SettingsMine extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.saveBtn:
-                AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
 
-                //super.onBackPressed();
-                //shrani vse spremenjene inputiče v bazo
-                saveBtn = (Button)findViewById(R.id.saveBtn);
-                imePriimek = (EditText)findViewById(R.id.nameSurname);
-                teza = (EditText)findViewById(R.id.teza);
-                visina = (EditText)findViewById(R.id.visina);
-                zeljeneKalorije = (EditText)findViewById(R.id.zeljeneCal);
-                zeljenCas = (EditText)findViewById(R.id.casTel);
-                spol = (Spinner)findViewById(R.id.gender);
-                //dobi ID od osebe
-                List<PersonEntity> p = db.personDAO().getAll();
-                int idOsebe = p.get(0).idPerson;
+                new Thread(){
 
-                //Log.v("EditText", mEdit.getText().toString());
-                String ip = imePriimek.getText().toString();
+                    @Override
+                    public void run() {
 
-                //če je uporabnik vnesel novo ime in priimek - edittext ni prazen, kliči funkcijo, ki updejta ta field v bazi
-                if (ip.matches("") == false) {
-                    //System.out.println("nova oseba shranjena");
-                    db.personDAO().updateImePriimek(ip, idOsebe);
-                    //System.out.println("Nova oseba"+db.personDAO().getAll().get(0).imePriimek);
-                }
+                        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
 
-                String t = teza.getText().toString();
+                        //super.onBackPressed();
+                        //shrani vse spremenjene inputiče v bazo
+                        saveBtn = (Button)findViewById(R.id.saveBtn);
+                        imePriimek = (EditText)findViewById(R.id.nameSurname);
+                        teza = (EditText)findViewById(R.id.teza);
+                        visina = (EditText)findViewById(R.id.visina);
+                        zeljeneKalorije = (EditText)findViewById(R.id.zeljeneCal);
+                        zeljenCas = (EditText)findViewById(R.id.casTel);
+                        spol = (Spinner)findViewById(R.id.gender);
+                        //dobi ID od osebe
+                        List<PersonEntity> p = db.personDAO().getAll();
+                        int idOsebe = p.get(0).idPerson;
 
-                if (t.matches("") == false) {
-                    int tInt =Integer.parseInt(t);
-                    db.personDAO().updateTeza(tInt, idOsebe);
-                    //System.out.println("Nova oseba"+db.personDAO().getAll().get(0).bodyWeight);
-                }
+                        //Log.v("EditText", mEdit.getText().toString());
+                        String ip = imePriimek.getText().toString();
 
-                String vis = visina.getText().toString();
+                        System.out.println("ip.matches() : " + ip.matches(""));
+                        System.out.println("teza.matches() : " +  teza.getText().toString().matches(""));
 
-                if (vis.matches("") == false) {
-                    int vInt =Integer.parseInt(vis);
-                    db.personDAO().updateVisina(vInt, idOsebe);
-                }
+                        //če je uporabnik vnesel novo ime in priimek - edittext ni prazen, kliči funkcijo, ki updejta ta field v bazi
+                        if (ip.matches("") == false) {
+                            //System.out.println("nova oseba shranjena");
+                            db.personDAO().updateImePriimek(ip, idOsebe);
 
-                String zelCal = zeljeneKalorije.getText().toString();
+                            //System.out.println("Nova oseba"+db.personDAO().getAll().get(0).imePriimek);
+                        }
 
-                if (zelCal.matches("") == false) {
-                    int zelCalInt =Integer.parseInt(zelCal);
-                    db.personDAO().updateZelCal(zelCalInt, idOsebe);
-                }
+                        String t = teza.getText().toString();
 
-                String zelCas = zeljenCas.getText().toString();
+                        if (t.matches("") == false) {
+                            int tInt =Integer.parseInt(t);
+                            db.personDAO().updateTeza(tInt, idOsebe);
 
-                if (zelCas.matches("") == false) {
-                    int zelCasInt =Integer.parseInt(zelCas);
-                    db.personDAO().updateZelCas(zelCasInt, idOsebe);
-                }
+                            System.out.println("smo v  teza");
+                            //System.out.println("Nova oseba"+db.personDAO().getAll().get(0).bodyWeight);
+                        }
 
-                String sp = spol.getSelectedItem().toString();
+                        String vis = visina.getText().toString();
 
-                if (sp.matches("") == false) {
-                    db.personDAO().updateSpol(sp, idOsebe);
-//                                    System.out.println("spol"+db.personDAO().getAll().get(0).spol);
-                }
+                        if (vis.matches("") == false) {
+                            int vInt =Integer.parseInt(vis);
+                            db.personDAO().updateVisina(vInt, idOsebe);
+
+                        }
+
+                        String zelCal = zeljeneKalorije.getText().toString();
+
+                        if (zelCal.matches("") == false) {
+                            int zelCalInt =Integer.parseInt(zelCal);
+                            db.personDAO().updateZelCal(zelCalInt, idOsebe);
+
+                        }
+
+                        String zelCas = zeljenCas.getText().toString();
+
+                        if (zelCas.matches("") == false) {
+                            int zelCasInt =Integer.parseInt(zelCas);
+                            db.personDAO().updateZelCas(zelCasInt, idOsebe);
+
+                        }
+
+                        String sp = spol.getSelectedItem().toString();
+
+                        if (sp.matches("") == false) {
+                            db.personDAO().updateSpol(sp, idOsebe);
+
+                            System.out.println("a smo slucajn v spolu");
+//                            System.out.println("spol"+db.personDAO().getAll().get(0).spol);
+                        }
+                        runOnUiThread( () -> feetBack());
+                    }
+                }.start();
 
                 super.onBackPressed();
                 break;
@@ -115,9 +136,15 @@ public class SettingsMine extends AppCompatActivity implements View.OnClickListe
 //                                        System.out.println("going homeeee");
 //                                        //intent.putExtra("clickedWorkout", clickedWorkout);
 //                                        context.startActivity(intent123);
-
+            case R.id.backBtn:
+                super.onBackPressed();
+                break;
         }
 
+    }
+
+    private void feetBack(){
+        Toast.makeText(context,"Uspešno posodobljen profil",Toast.LENGTH_LONG).show();
     }
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +152,9 @@ public class SettingsMine extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.fragment_settings);
         //clickedWorkout = getIntent().getParcelableExtra("mylist");
         saveBtn = findViewById(R.id.saveBtn);
+        backBtn = findViewById(R.id.backBtn);
         saveBtn.setOnClickListener(this);
+        backBtn.setOnClickListener(this);
         context = this;
 
 

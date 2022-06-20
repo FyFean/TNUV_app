@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +34,6 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.MyViewHolder
         this.mContext = mContext;
         this.clickedVaja = clickedVaja;
         this.listCustWorkoutov = listCustWorkoutov;
-
     }
 
     //inflatamo popup_card
@@ -69,15 +69,6 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.MyViewHolder
                         db.workoutVajeDAO().insert(cr);
 
 
-//                        List<WorkoutVaje> vv2 = db.workoutVajeDAO().getWorkoutVaje();
-//                        for (int i = 0; i < vv2.size(); i++) {
-//                            for (int j = 0; j < vv2.get(i).vajaEntityList.size(); j++) {
-//                                System.out.println("par workouta: " + vv2.get(i).workoutEntity.imeWorkouta + "z vajami: " + vv2.get(i).vajaEntityList.get(j).imeVaje);
-//
-//                            }
-//
-//                        }
-
 
                         //vrne podatke v main thread also i dunno zkaj mors castat v Activity
                         ((Activity) mContext).runOnUiThread( () -> provideFeedbackKerSmoPrijazni( listCustWorkoutov.get(position).getIme(), clickedVaja.getImeVaje()));
@@ -87,7 +78,9 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.MyViewHolder
         });
     }
     private void provideFeedbackKerSmoPrijazni(String imeW, String imeV){
+
         Toast.makeText(mContext,imeV + " has been successfully added to wokrout " + imeW,Toast.LENGTH_LONG).show();
+        //((PopupWindow)mContext).dismiss(); //????
     }
 
     @Override

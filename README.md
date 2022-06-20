@@ -26,7 +26,7 @@ dodaj video na description M
 preveri ali baza obstaja, da se samo prvič zažene 
     -tle se more klicat json M
     -tle se more ce se ni baze poklicat longin screen 
-        -make a login screen + backend M 
+    -make a login screen + backend M 
 
 treba je dodat scroll wheel za settingse - Petra tries makes matic knows 
 
