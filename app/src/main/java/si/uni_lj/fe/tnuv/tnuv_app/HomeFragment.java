@@ -46,6 +46,8 @@ public class HomeFragment extends Fragment{
     TextView date;
     TextView weight;
     TextView BMI;
+    String izracunStr;
+    int izracun;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -157,33 +159,27 @@ public class HomeFragment extends Fragment{
                 List<PersonEntity> p = db.personDAO().getAll();
                 int idOsebe = p.get(0).idPerson;
 
-//                //nastavitev datuma
-//                String datum = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
-//                date = (TextView)rootView.findViewById(R.id.datumProfil);
-//                date.setText(datum);
+                //nastavitev datuma
+                String datum = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
+                date.setText(datum);
 
 
-                //nastavitev imena
-
+                 //nastavitev imena
                 imPr.setText(p.get(0).imePriimek);
-//
-//                //nastavitev kalorij
-//                calories = (TextView)rootView.findViewById(R.id.caloriesText);
-//                calories.setText(p.get(0).caloriesDone+"/"+p.get(0).caloriesGoal + " kcal");
-//
-//                //nastavitev časa
-//                time = (TextView)rootView.findViewById(R.id.timeText);
-//                time.setText(p.get(0).timeDone+"/"+p.get(0).timeGoal + " min");
-//
-//                //nastavitev teže
-//                weight = (TextView)rootView.findViewById(R.id.weigth);
-//                weight.setText(p.get(0).bodyWeight+" kg");
-//
-//                //nastavitev BMI
-//                BMI = (TextView)rootView.findViewById(R.id.BMI);
-//                int izracun = p.get(0).bodyWeight/(p.get(0).bodyHeight*p.get(0).bodyHeight);
-//                String izracunStr = String.valueOf(izracun);
-//                BMI.setText(izracunStr);
+
+                //nastavitev kalorij
+                calories.setText(p.get(0).caloriesDone+"/"+p.get(0).caloriesGoal + " kcal");
+
+                //nastavitev časa
+                time.setText(p.get(0).timeDone+"/"+p.get(0).timeGoal + " min");
+
+                //nastavitev teže
+                weight.setText(p.get(0).bodyWeight+" kg");
+
+                //nastavitev BMI
+                izracun = p.get(0).bodyWeight/(p.get(0).bodyHeight*p.get(0).bodyHeight);
+                izracunStr = String.valueOf(izracun);
+                BMI.setText(izracunStr);
 
 
 
@@ -247,35 +243,24 @@ public class HomeFragment extends Fragment{
 //        List<PersonEntity> p = db.personDAO().getAll();
 //        int idOsebe = p.get(0).idPerson;
 //
-//        //nastavitev datuma
-//        String datum = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
-//        date = (TextView)rootView.findViewById(R.id.datumProfil);
-//        date.setText(datum);
-//
-//
-//        //nastavitev imena
+        //nastavitev datuma
+        String datum = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
+        date = (TextView)rootView.findViewById(R.id.datumProfil);
+
+        //nastavitev imena
         imPr = (TextView)rootView.findViewById(R.id.imePriimek);
-//        imPr.setText(p.get(0).imePriimek);
-//
-//        //nastavitev kalorij
-//        calories = (TextView)rootView.findViewById(R.id.caloriesText);
-//        calories.setText(p.get(0).caloriesDone+"/"+p.get(0).caloriesGoal + " kcal");
-//
-//        //nastavitev časa
-//        time = (TextView)rootView.findViewById(R.id.timeText);
-//        time.setText(p.get(0).timeDone+"/"+p.get(0).timeGoal + " min");
-//
-//        //nastavitev teže
-//        weight = (TextView)rootView.findViewById(R.id.weigth);
-//        weight.setText(p.get(0).bodyWeight+" kg");
-//
-//        //nastavitev BMI
-//        BMI = (TextView)rootView.findViewById(R.id.BMI);
-//        int izracun = p.get(0).bodyWeight/(p.get(0).bodyHeight*p.get(0).bodyHeight);
-//        String izracunStr = String.valueOf(izracun);
-//        BMI.setText(izracunStr);
 
+        //nastavitev kalorij
+        calories = (TextView)rootView.findViewById(R.id.caloriesText);
 
+        //nastavitev časa
+        time = (TextView)rootView.findViewById(R.id.timeText);
+
+        //nastavitev teže
+        weight = (TextView)rootView.findViewById(R.id.weigth);
+
+        //nastavitev BMI
+        BMI = (TextView)rootView.findViewById(R.id.BMI);
 
 
         // 1. get a reference to recyclerView

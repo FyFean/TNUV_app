@@ -2,17 +2,18 @@
 
 
 TODO:
-~~povezat insert fielde v start workout z bazo M~~
+povezat insert fielde v start workout z bazo M
 ~~make finish button appear again P~~
-back button na settings M  --> done -> shrani podatke, ne gre nazaj, mi ni
+~~back button na settings M  --> done -> shrani podatke, ne gre nazaj, mi ni~~
 ~~back button na start workout P~~
 ~~naj iz baze vlečejo na profile informacije M  --> done, samo bmi neki jebe~~ neki se spremenit po istem kopitu
 ~~make finish button appear again P~~
-back button na settings M - super back page whatever
+~~back button na settings M - super back page whatever~~
 dodaj klic baze na separate thread P/M
 ~~back button na start workout P~~
 ~~naj iz baze vlečejo na profile informacije M~~
 start an empty workout P
+naredi profile z modrim ozadjem - M
 
 ~~new thread za settings in start workout P/m --doneneee~~
 
@@ -30,7 +31,7 @@ preveri ali baza obstaja, da se samo prvič zažene
 
 treba je dodat scroll wheel za settingse - Petra tries makes matic knows 
 
-
+timer thingie
 
 finishinf touches
 slika na profil

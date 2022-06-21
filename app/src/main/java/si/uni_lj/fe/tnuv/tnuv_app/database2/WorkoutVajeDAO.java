@@ -19,5 +19,4 @@ public interface WorkoutVajeDAO {
     @Transaction
     @Query("SELECT * FROM WorkoutEntity")
     public List<WorkoutVaje> getWorkoutVaje();
-
 }

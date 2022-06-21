@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -16,12 +17,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import androidx.cardview.widget.CardView;
+import androidx.room.Room;
+
 import android.widget.Toast;
 import android.content.Context;
 
 import com.google.android.material.button.MaterialButton;
 
 import org.w3c.dom.Text;
+
+import si.uni_lj.fe.tnuv.tnuv_app.database2.AppDatabase;
+import si.uni_lj.fe.tnuv.tnuv_app.database2.DetailsEntity;
 
 //ustvarimo class recyclerAdapter za listVaj in znotraj se class MyViewHolder
 public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> {
@@ -31,6 +37,7 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
     public int cardType;
     Context context;
     LayoutInflater ly;
+    AppDatabase db;
 
     //constructor
     VajaAdapter(ArrayList<Vaja> listVaj,ArrayList<Workout> listWorkoutov, int cardType){
@@ -45,7 +52,13 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
         private TextView muscleTxt;
         private ImageView img;
         private MaterialButton button;
+        private MaterialButton kljukica;
         CardView cv;
+        private EditText stPonovitev;
+        private EditText stSetov;
+        private EditText tezaUtezi;
+
+
 
 
         public MyViewHolder(final View view){
@@ -55,6 +68,13 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
             img =  (ImageView)view.findViewById(R.id.imgVaje);
             button = view.findViewById(R.id.dodajBtn);
             cv = (CardView)view.findViewById(R.id.cv);
+            kljukica = view.findViewById(R.id.kljukica);
+            stPonovitev = (EditText) view.findViewById(R.id.stPonovitev);
+            stSetov = (EditText) view.findViewById(R.id.stSetov);
+            tezaUtezi = (EditText) view.findViewById(R.id.tezaUtezi);
+
+
+
 
         }
     }
@@ -91,6 +111,7 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
     //klican tokrat kokr elementov imamo v listu
     @Override
     public void onBindViewHolder(@NonNull VajaAdapter.MyViewHolder holder, int position) {
+        db = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
         String imeV = listVaj.get(position).getImeVaje();
         String muscleV = listVaj.get(position).getMuscleG();
         int imgV = listVaj.get(position).getImgVaje();
@@ -161,6 +182,30 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
 //            }
             });
 
+        }
+
+        if(cardType == 2) {
+            holder.kljukica.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    System.out.println("shranjevanjeDetail");
+                    //int idWorkoutaCurrent = listWorkoutov.get(position).getIdWorkouta();
+                    int idVajeCurrent = listVaj.get(position).getIdVaje();
+
+//                    System.out.println("steviloreps"+Integer.parseInt(((EditText) view.findViewById(R.id.stPonovitev)).getText().toString()));
+
+
+                DetailsEntity detajli = new DetailsEntity();
+                detajli.pripadaVaji = idVajeCurrent;
+                detajli.pripadaWorkoutu = 0;
+                detajli.reps = Integer.parseInt(holder.stPonovitev.getText().toString());
+                detajli.weight = Integer.parseInt(holder.tezaUtezi.getText().toString());
+                detajli.setNo = Integer.parseInt(holder.stSetov.getText().toString());
+                db.detailsDAO().insert(detajli);
+                    // db.personDAO().getAll().get(0).imePriimek
+                System.out.println("namesurname "+ db.personDAO().getAll().get(0).imePriimek);
+                }
+            });
         }
 
 

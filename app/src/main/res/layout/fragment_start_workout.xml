@@ -65,7 +65,6 @@
             android:background="@color/bcg"
             tools:context=".WorkoutPodrobnosti">
 
-            <!--    TODO: DODAJ START WORKOUT za ccontext-->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewStart"
                 android:layout_width="match_parent"
