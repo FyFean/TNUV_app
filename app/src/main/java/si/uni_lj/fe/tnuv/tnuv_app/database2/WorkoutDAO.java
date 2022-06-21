@@ -20,9 +20,11 @@ public interface WorkoutDAO {
     @Query("SELECT * FROM WorkoutEntity WHERE isCustom = 0")
     List<WorkoutEntity> getPremade();
 
+    @Query("UPDATE WorkoutEntity SET ime_workouta = :novIme WHERE idWorkouta = :idWorkouta")
+    void updateImeWorkouta(String novIme, int idWorkouta);
 
     @Insert
-    void insert(si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutEntity workout);
+    long insert(si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutEntity workout);
 
 
 }

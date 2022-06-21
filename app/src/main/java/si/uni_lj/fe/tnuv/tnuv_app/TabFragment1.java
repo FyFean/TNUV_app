@@ -43,21 +43,12 @@ public class TabFragment1 extends Fragment {
 
                 @Override
                 public void run() {
-                    //tole je sam link do baze and as far as i know u can call it multiple times
+
                     AppDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(), AppDatabase.class, "database-name").build();
 
                     List<WorkoutEntity> w = db.workoutDAO().getCustom();
-
-                    for (int i = 0; i < w.size(); i++) {
-                        System.out.println("++ tab fragmt workouts: "+w.get(i).imeWorkouta );
-                    }
-
                     List<WorkoutVaje> wv = db.workoutVajeDAO().getWorkoutVaje();
-                    for (int i = 0; i < wv.size(); i++) {
-                        for (int j = 0; j < wv.get(i).vajaEntityList.size(); j++) {
-                            System.out.println("++ tab fragmt povezava wokrouta: " +  wv.get(i).workoutEntity.imeWorkouta + ", z vajami: " + wv.get(i).vajaEntityList.get(j).imeVaje );
-                        }
-                    }
+
                     //vrne podatke v main thread
                     getActivity().runOnUiThread( () -> setWorkoutAdapter(w, wv));
                 }
@@ -79,7 +70,8 @@ public class TabFragment1 extends Fragment {
                     ArrayList<Vaja> listVaj = new ArrayList<Vaja>();
                     for (int k = 0; k < wv.get(j).vajaEntityList.size(); k++) {
                         VajaEntity v = wv.get(j).vajaEntityList.get(k);
-                        listVaj.add(new Vaja(v.idVaje, v.imeVaje, v.muscleG, R.drawable.dumbbell_icon, v.desc, v.cals));
+                        Vaja vaja = new Vaja(v.idVaje, v.imeVaje, v.muscleG, R.drawable.dumbbell_icon, v.desc, v.cals);
+                        listVaj.add(vaja);
 //                        TODO: calculateTotalCals();
                     }
                     listWorkoutov.add(new Workout(we.idWorkouta, we.imeWorkouta, we.trajanje, we.totalCals, listVaj));
@@ -87,6 +79,7 @@ public class TabFragment1 extends Fragment {
 
             }
         }
+
 
         System.out.println("mm ko vrnemo podatke v mainThr list: " + listWorkoutov);
         //holda reference na list ki ga posljes v adapter in opazuje ce se je ta list spremenil.

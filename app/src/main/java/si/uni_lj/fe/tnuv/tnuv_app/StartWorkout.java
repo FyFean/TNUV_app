@@ -100,6 +100,7 @@ public class StartWorkout extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         clickedWorkout = getIntent().getParcelableExtra("clickedWorkout");
+//        System.out.println("dkjakfljd" + clickedWorkout.getIdWorkouta());
         setContentView(R.layout.fragment_start_workout);
 
         context  = this;
@@ -126,8 +127,11 @@ public class StartWorkout extends AppCompatActivity implements View.OnClickListe
         // 2. set layoutManger
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        System.out.println("vaje clicked workotua: " + clickedWorkout.getVaje());
+
         // 3. create an adapter
-        adapter = new VajaAdapter(clickedWorkout.getVaje(),null, 2);
+        System.out.println("predn gre v adapter " + clickedWorkout.getIdWorkouta());
+        adapter = new VajaAdapter(clickedWorkout.getVaje(),null, clickedWorkout,2);
 
         // 4. set adapter
         recyclerView.setAdapter(adapter);

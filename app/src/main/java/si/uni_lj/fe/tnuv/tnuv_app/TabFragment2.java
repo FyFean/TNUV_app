@@ -43,17 +43,8 @@ public class TabFragment2 extends Fragment {
                 AppDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(), AppDatabase.class, "database-name").build();
 
                 List<WorkoutEntity> w = db.workoutDAO().getPremade();
-
-                for (int i = 0; i < w.size(); i++) {
-                    System.out.println("++ tab fragmt workouts: "+w.get(i).imeWorkouta );
-                }
-
                 List<WorkoutVaje> wv = db.workoutVajeDAO().getWorkoutVaje();
-                for (int i = 0; i < wv.size(); i++) {
-                    for (int j = 0; j < wv.get(i).vajaEntityList.size(); j++) {
-                        System.out.println("++ tab fragmt povezava wokrouta: " +  wv.get(i).workoutEntity.imeWorkouta + ", z vajami: " + wv.get(i).vajaEntityList.get(j).imeVaje );
-                    }
-                }
+
                 //vrne podatke v main thread
                 getActivity().runOnUiThread( () -> setWorkoutAdapter(w, wv));
             }

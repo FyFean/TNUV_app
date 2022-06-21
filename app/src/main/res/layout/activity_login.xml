@@ -210,7 +210,8 @@
         android:inputType="number"
         android:background="@drawable/login_cards"
         android:textSize="15sp"
-        android:textColorHint="@color/proba"/>
+        android:textColorHint="@color/proba"
+        android:textColor="@color/white"/>
 
 
 
