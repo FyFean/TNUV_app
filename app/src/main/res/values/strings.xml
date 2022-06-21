@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">TNUV_app</string>
     <string name="profile">profile</string>
+
     <string name="workout">start workout</string>
     <string name="list">list</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -14,4 +15,16 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="your_name">Gregor Samsa</string>
+    <string name="imeLabel">Ime in priimek</string>
+    <string name="spol">Spol</string>
+    <string name="cal">Koliko kalorij na dan želiš porabiti (kcal)</string>
+    <string name="cals">300</string>
+    <string name="cas">Koliko časa na dan želiš trenirati (min)</string>
+    <string name="casHint">40</string>
+    <string name="teza">Teža (kg)</string>
+    <string name="tezahint">77</string>
+    <string name="vis">Višina (cm)</string>
+    <string name="visinahint">182</string>
+    <string name="tag">"Veseli nas, da ste naredili prvi korak k boljšemu zdravju. Izpolnite spodnje podatke in začnite svojo fitnes potovanje!"</string>
 </resources>

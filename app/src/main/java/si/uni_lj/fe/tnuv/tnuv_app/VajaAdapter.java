@@ -167,7 +167,7 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
                     recyclerView.setLayoutManager(mLayoutManager);
 
                     //klicemo adapter in mu podamo listWorkoutov
-                    PopupAdapter adapter = new PopupAdapter(context, listVaj.get(position), listWorkoutov);
+                    PopupAdapter adapter = new PopupAdapter(context, popupWindow, listVaj.get(position), listWorkoutov);
 
                     //setamo adapter
                     recyclerView.setAdapter(adapter);

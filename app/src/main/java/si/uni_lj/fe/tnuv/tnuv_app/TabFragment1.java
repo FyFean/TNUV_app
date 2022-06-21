@@ -1,5 +1,6 @@
 package si.uni_lj.fe.tnuv.tnuv_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,23 +27,6 @@ public class TabFragment1 extends Fragment {
     WorkoutAdapter adapter;
 
 
-
-    private void setVajaInfo() {
-
-//        ArrayList<Vaja> listVaj = new ArrayList<Vaja>();
-//        listVaj.add(new Vaja("Squats", "Legs", R.drawable.dumbbell_icon, "Description:....."));
-//        listVaj.add(new Vaja("Lundges", "Legs", R.drawable.dumbbell_icon, "Description:....."));
-//        listVaj.add(new Vaja("Hip thrusts", "Legs", R.drawable.dumbbell_icon, "Description:....."));
-//
-//        listWorkoutov.add(new Workout("Leg day",listVaj ));
-//        listWorkoutov.add(new Workout("Booty day",listVaj ));
-//        listWorkoutov.add(new Workout("Booty day",listVaj ));
-//        listWorkoutov.add(new Workout("Booty day",listVaj ));
-//        listWorkoutov.add(new Workout("Booty day",listVaj ));
-//        listWorkoutov.add(new Workout("Booty day",listVaj ));
-//        listWorkoutov.add(new Workout("Booty day",listVaj ));
-
-    }
 
     //v onStart se povezemo z bazo da dobimo vse workoute in updatamo adapter
     //onStart se pozene za onCreate in onCreateView
@@ -115,6 +99,8 @@ public class TabFragment1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment1, container, false);
 
@@ -132,6 +118,14 @@ public class TabFragment1 extends Fragment {
 
         // 5. set item animator to DefaultAnimator
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        view.findViewById(R.id.StartWrk).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), EmptyWorkout.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
 

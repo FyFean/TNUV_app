@@ -128,6 +128,7 @@ public class HomeFragment extends Fragment{
     @Override
     public void onStart() {
         super.onStart();
+        listWorkoutov.clear();
         System.out.println("Baza je klicana!");
 
 

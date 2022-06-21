@@ -157,7 +157,6 @@ public class SettingsMine extends AppCompatActivity implements View.OnClickListe
         backBtn.setOnClickListener(this);
         context = this;
 
-
         //dropdown menu
         String[] arraySpinner = new String[] {
                 "Moški", "Ženska", "Drugo"

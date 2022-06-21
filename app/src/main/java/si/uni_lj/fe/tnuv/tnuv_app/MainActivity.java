@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.room.Room;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.util.Log;
 
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -60,19 +65,51 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //SHARED PREFERENCES
+        SharedPreferences sharedPrefs = getSharedPreferences("myshreda",Context.MODE_PRIVATE);
+
+        //dobimo privzeto vrednost, privzeto je resource ki se shranjuje v values/integers.xml
+        //prvic ko se app zazene je se prazna, naslednic se ze pospamma z usernameom
+        String privzeto = getResources().getString(R.string.privzetEmptyUsername);
+
+        //dobimo prejsno vrednost stevca, getInt(key, value)
+        String ime = sharedPrefs.getString(getString(R.string.kljuc), privzeto);
+
+
+        //DELETE THIS
+//        ime = "";
+//        SharedPreferences.Editor editor = sharedPrefs.edit();
+//        editor.putString( getString(R.string.kljuc), ime );
+//        editor.commit();
+        //DELETE THIS
+
+
+        String ime2 = sharedPrefs.getString(getString(R.string.kljuc), privzeto);
+        System.out.println("wwwwwww ime v main activity " + ime2+ ".");
+
+        if("".equals(ime)){
+            //smo prvic v appu, askamo za login screen
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
+        }
+
+
+
+        //BOTTOM NAV BAR
         setContentView(R.layout.activity_main);
-
         navigationBarView = findViewById(R.id.bottom_nav);
-
         navigationBarView.setOnItemSelectedListener(bottomNavMethod);
-
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new WorkoutFragment()).commit();
-
         navigationBarView.setSelectedItemId(R.id.dumbbell);
 
-        getApplicationContext().deleteDatabase("database-name");
-        InsertDataInDB();
+
+//        getApplicationContext().deleteDatabase("database-name");
+//        InsertDataInDB();
 //        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
+
+
+
 
 
     }

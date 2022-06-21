@@ -11,7 +11,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#FFB3B3B3</color>
-    <color name="proba">#FF4C5183</color>
+    <color name="proba">#A2A2A2</color>
     <color name="purple_cards">#373856</color>
     <color name="pinky">#B74277</color>
 </resources>

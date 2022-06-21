@@ -28,10 +28,12 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.MyViewHolder
     Context mContext;
     private ArrayList<Workout> listCustWorkoutov;
     private Vaja clickedVaja;
+    private PopupWindow popupWindow;
 
     //constructor
-    public PopupAdapter(Context mContext, Vaja clickedVaja, ArrayList<Workout> listCustWorkoutov) {
+    public PopupAdapter(Context mContext, PopupWindow popUpWindow, Vaja clickedVaja, ArrayList<Workout> listCustWorkoutov) {
         this.mContext = mContext;
+        this.popupWindow = popUpWindow;
         this.clickedVaja = clickedVaja;
         this.listCustWorkoutov = listCustWorkoutov;
     }
@@ -69,11 +71,12 @@ public class PopupAdapter extends RecyclerView.Adapter<PopupAdapter.MyViewHolder
                         db.workoutVajeDAO().insert(cr);
 
 
-
                         //vrne podatke v main thread also i dunno zkaj mors castat v Activity
                         ((Activity) mContext).runOnUiThread( () -> provideFeedbackKerSmoPrijazni( listCustWorkoutov.get(position).getIme(), clickedVaja.getImeVaje()));
                     }
                 }.start();
+//                Toast.makeText(mContext,clickedVaja.getImeVaje() + " has been successfully added to wokrout " + listCustWorkoutov.get(position).getIme(),Toast.LENGTH_LONG).show();
+                popupWindow.dismiss();
             }
         });
     }
