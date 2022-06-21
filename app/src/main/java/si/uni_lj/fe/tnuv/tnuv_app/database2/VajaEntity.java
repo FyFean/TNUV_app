@@ -25,6 +25,12 @@ public class VajaEntity {
     @ColumnInfo(name = "cals")
     public int cals;
 
+    @ColumnInfo(name = "recommendedSets")
+    public int recommendedSets;
+
+    @ColumnInfo(name = "recomendedReps")
+    public int recomendedReps;
+
 }
 
 

@@ -10,21 +10,29 @@ public class Vaja implements Parcelable {
     private int imgVaje;
     private String desc;
     private int cals;
+    private int recommendedSets;
+    private int recommendedReps;
 
 
-    public Vaja(int idVaje, String imeVaje, String muscleG, int imgVaje, String desc, int cals){
+    public Vaja(int idVaje, String imeVaje, String muscleG, int imgVaje, String desc, int cals, int recommendedReps, int recommendedSets){
         this.idVaje = idVaje;
         this.imeVaje = imeVaje;
         this.muscleG = muscleG;
         this.imgVaje = imgVaje;
         this.desc = desc;
         this.cals = cals;
+        this.recommendedSets = recommendedSets;
+        this.recommendedReps = recommendedReps;
     }
 
     protected Vaja(Parcel in) {
         imeVaje = in.readString();
         muscleG = in.readString();
         imgVaje = in.readInt();
+        desc = in.readString();
+        cals = in.readInt();
+        recommendedSets = in.readInt();
+        recommendedReps = in.readInt();
     }
 
     public void setIdVaje(int idVaje) {
@@ -41,6 +49,18 @@ public class Vaja implements Parcelable {
 
     public int getIdVaje() {
         return idVaje;
+    }
+
+    public int getRecommendedReps() {
+        return recommendedReps;
+    }
+
+    public int getRecommendedSets() {
+        return recommendedSets;
+    }
+
+    public void setRecommendedSets(int recommendedSets) {
+        this.recommendedSets = recommendedSets;
     }
 
     public String getDesc() {

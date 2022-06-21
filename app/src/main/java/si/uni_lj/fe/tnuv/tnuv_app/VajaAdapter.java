@@ -1,5 +1,6 @@
 package si.uni_lj.fe.tnuv.tnuv_app;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -171,7 +172,6 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
 
                     //setamo adapter
                     recyclerView.setAdapter(adapter);
-
                 }
 
 
@@ -182,6 +182,25 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
 //            }
             });
 
+        }
+        if(cardType == 1) {
+            //CLICK NA PODROBNOSTI VAJ
+            holder.cv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    System.out.println("Carddview kliknjen");
+                    for (int i = 0; i < listVaj.size(); i++) {
+                        System.out.println("imevaje"+ listVaj.get(i).getDesc());
+
+                    }
+
+                    Intent intent = new Intent(context, VajaPodrobnosti.class);
+                    System.out.println("position"+ position);
+                    intent.putExtra("vajaList", listVaj.get(position));
+                    context.startActivity(intent);
+
+                }
+            });
         }
 
         if(cardType == 2) {

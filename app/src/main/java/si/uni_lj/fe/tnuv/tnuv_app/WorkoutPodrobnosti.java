@@ -28,7 +28,6 @@ public class WorkoutPodrobnosti extends AppCompatActivity implements View.OnClic
         switch (v.getId()) {
             case R.id.backBtn:
                 super.onBackPressed();
-                //System.out.println("pritisnjen back button");
                 break;
             case R.id.startButn:
                 Intent intent = new Intent(context, StartWorkout.class);

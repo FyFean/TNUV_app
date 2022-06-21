@@ -5,6 +5,7 @@
 //import org.json.JSONArray;
 //import org.json.JSONException;
 //import org.json.JSONObject;
+////import org.json.simple.parser.JSONParser;
 //
 //import java.util.ArrayList;
 //import java.util.HashMap;
@@ -21,6 +22,7 @@
 //    public ArrayList<HashMap<String, String>> parseToArrayList(String jsonStr){
 //        try {
 //            JSONObject jsonObj = new JSONObject(jsonStr);
+//            //Object obj = parser.parse(new FileReader("//cdn.crunchify.com/Users/Shared/crunchify.json"));
 //
 //            // Getting JSON Array node
 //            JSONArray vaje = jsonObj.getJSONArray("vaje");

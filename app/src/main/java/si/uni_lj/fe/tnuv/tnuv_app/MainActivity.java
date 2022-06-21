@@ -61,6 +61,27 @@ public class MainActivity extends AppCompatActivity {
 //        return json;
 //    }
 
+    private String convertStreamToString(InputStream is) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+
+        String line;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line).append('\n');
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return sb.toString();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         // P E O P L E
         PersonEntity oseba1 = new PersonEntity();
         oseba1.imePriimek = "Živa Groza";
-        oseba1.spol = "F";
+        oseba1.spol = "Ženski";
         oseba1.caloriesGoal = 700;
         oseba1.timeGoal = 50;
         oseba1.bodyWeight = 55;
@@ -140,6 +161,9 @@ public class MainActivity extends AppCompatActivity {
         squats.muscleG = "Legs";
         squats.imgVaje = R.drawable.ic_overheadpress;
         squats.cals = 20;
+        squats.desc = "Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia";
+        squats.recommendedSets = 4;
+        squats.recomendedReps = 10;
         db.vajeDao().insert(squats);
 
         VajaEntity nadGlavni_vzdig = new VajaEntity();
@@ -147,6 +171,9 @@ public class MainActivity extends AppCompatActivity {
         nadGlavni_vzdig.muscleG = "Ramena";
         nadGlavni_vzdig.imgVaje = R.drawable.ic_overheadpress;
         nadGlavni_vzdig.cals = 20;
+        nadGlavni_vzdig.desc = "Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia";
+        nadGlavni_vzdig.recommendedSets = 4;
+        nadGlavni_vzdig.recomendedReps = 10;
         db.vajeDao().insert(nadGlavni_vzdig);
 
         VajaEntity lundges = new VajaEntity();
@@ -154,6 +181,9 @@ public class MainActivity extends AppCompatActivity {
         lundges.muscleG = "Legs";
         lundges.imgVaje = R.drawable.ic_overheadpress;
         lundges.cals = 20;
+        lundges.desc = "Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia";
+        lundges.recommendedSets = 4;
+        lundges.recomendedReps = 10;
         db.vajeDao().insert(lundges);
 
         VajaEntity hipThr = new VajaEntity();
@@ -161,6 +191,9 @@ public class MainActivity extends AppCompatActivity {
         hipThr.muscleG = "Legs";
         hipThr.imgVaje = R.drawable.ic_overheadpress;
         hipThr.cals = 20;
+        hipThr.desc = "Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia";
+        hipThr.recommendedSets = 4;
+        hipThr.recomendedReps = 10;
         db.vajeDao().insert(hipThr);
 
         VajaEntity good_morning = new VajaEntity();
@@ -168,6 +201,9 @@ public class MainActivity extends AppCompatActivity {
         good_morning.muscleG = "Legs";
         good_morning.imgVaje = R.drawable.ic_overheadpress;
         good_morning.cals= 11;
+        good_morning.desc = "Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia";
+        good_morning.recommendedSets = 4;
+        good_morning.recomendedReps = 10;
         db.vajeDao().insert(good_morning);
 
         VajaEntity romanian_deadlift = new VajaEntity();
@@ -175,6 +211,9 @@ public class MainActivity extends AppCompatActivity {
         romanian_deadlift.muscleG = "Legs";
         romanian_deadlift.imgVaje = R.drawable.ic_overheadpress;
         romanian_deadlift.cals= 33;
+        romanian_deadlift.desc = "Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia";
+        romanian_deadlift.recommendedSets = 4;
+        romanian_deadlift.recomendedReps = 10;
         db.vajeDao().insert(romanian_deadlift);
 
         WorkoutEntity upperBody = new WorkoutEntity();

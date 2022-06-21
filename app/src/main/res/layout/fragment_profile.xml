@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".HomeFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bcg">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -15,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/bcg"
             app:popupTheme="@style/Theme.TNUV_app.PopupOverlay">
 
             <LinearLayout
@@ -65,6 +66,7 @@
             android:layout_marginTop="8dp"
             android:text="Datum"
             android:textSize="13sp"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></TextView>
@@ -91,7 +93,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="0dp"
                 android:text="Osebni profil"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -127,10 +129,10 @@
             <ImageView
                 android:id="@+id/profilePic"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:scaleX="0.9"
                 android:scaleY="0.9"
-                tools:srcCompat="@tools:sample/avatars" />
+                app:srcCompat="@drawable/ic_chart_svgrepo_com" />
 
 
         </LinearLayout>
@@ -175,7 +177,7 @@
                         android:layout_centerHorizontal="true"
                         android:text="1200/2000 kcal"
                         android:layout_gravity="center_vertical"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="16dp"
                         android:layout_marginLeft="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -224,7 +226,7 @@
                         android:layout_centerHorizontal="true"
                         android:text="30/60 min"
                         android:layout_gravity="center_vertical"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="16dp"
                         android:layout_marginLeft="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -252,7 +254,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Ime Priimek"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="16dp"
                 android:layout_marginLeft="45dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -282,7 +284,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="190dp"
             android:text="Pretekla aktivnost"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -304,7 +306,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
+            android:background="@color/bcg"
             tools:context=".HomeFragment">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -327,7 +329,7 @@
                 android:layout_weight="0.4"
                 android:layout_height="wrap_content"
                 android:layout_width="0dp"
-
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp">
 
                 <ImageView
@@ -341,7 +343,8 @@
             <LinearLayout
                 android:layout_width="8dp"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:id="@+id/weigth"
@@ -351,7 +354,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
                     android:text="60 kg"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="16dp"></TextView>
             </LinearLayout>
         </LinearLayout>
@@ -362,18 +365,21 @@
             android:layout_width="0dp"
             android:orientation="horizontal">
             <LinearLayout
-                android:layout_weight="1"
+                android:layout_weight="1.2"
                 android:layout_height="fill_parent"
-                android:layout_width="0dp">
+                android:layout_width="0dp"
+                android:layout_marginTop="10dp"
+                >
                 <TextView
                     android:id="@+id/BMI"
-                    android:layout_width="60dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
-                    android:text="60 kg"
-                    android:textColor="@color/black"
+                    android:text="20"
+                    android:textColor="@color/white"
+                    android:layout_marginRight="10dp"
                     android:textSize="16dp"></TextView>
             </LinearLayout>
 
@@ -381,13 +387,15 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_width="0dp"
-                android:layout_marginRight="30dp">
+                android:layout_marginRight="30dp"
+                >
 
                 <ImageView
                     android:id="@+id/imageBMI"
                     android:layout_height="50dp"
                     android:layout_width="50dp"
-                    app:srcCompat="@drawable/scale"/>
+                    app:srcCompat="@drawable/scale"
+                    android:layout_marginTop="10dp"/>
             </LinearLayout>
         </LinearLayout>
 

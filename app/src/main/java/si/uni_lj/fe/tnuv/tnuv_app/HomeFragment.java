@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -46,8 +47,11 @@ public class HomeFragment extends Fragment{
     TextView date;
     TextView weight;
     TextView BMI;
+    ImageView spol;
     String izracunStr;
-    int izracun;
+    double izracun;
+    int izracunInt;
+    ImageView profilePic;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -129,7 +133,7 @@ public class HomeFragment extends Fragment{
     public void onStart() {
         super.onStart();
         listWorkoutov.clear();
-        System.out.println("Baza je klicana!");
+        //System.out.println("Baza je klicana!");
 
 
 
@@ -178,9 +182,28 @@ public class HomeFragment extends Fragment{
                 weight.setText(p.get(0).bodyWeight+" kg");
 
                 //nastavitev BMI
-                izracun = p.get(0).bodyWeight/(p.get(0).bodyHeight*p.get(0).bodyHeight);
-                izracunStr = String.valueOf(izracun);
-                BMI.setText(izracunStr);
+                int we = p.get(0).bodyWeight;
+                double he = p.get(0).bodyHeight;
+                System.out.println("he"+ he);
+                izracun = (we/Math.pow(he,2))*10000;
+                izracunInt = (int) izracun;
+                System.out.println("izracun"+ izracun + " " + izracunInt);
+                izracunStr = String.valueOf(izracunInt);
+                System.out.println("izracunSTR"+ izracunStr);
+
+                BMI.setText(izracunStr + " BMI");
+
+                //slika
+                String spol = p.get(0).spol;
+                System.out.println("spolll "+ spol);
+                if(spol.equals("Moški")) {
+                    profilePic.setImageResource(R.drawable.man_small);
+                } else if (spol.equals("Ženski")) {
+                    profilePic.setImageResource(R.drawable.woman_small_2);
+                } else {
+                    profilePic.setImageResource(R.drawable.uisex_icon);
+                }
+
 
 
 
@@ -262,6 +285,11 @@ public class HomeFragment extends Fragment{
 
         //nastavitev BMI
         BMI = (TextView)rootView.findViewById(R.id.BMI);
+
+        //slika
+        profilePic = (ImageView) rootView.findViewById(R.id.profilePic);
+
+
 
 
         // 1. get a reference to recyclerView

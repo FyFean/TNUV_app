@@ -159,7 +159,7 @@ public class SettingsMine extends AppCompatActivity implements View.OnClickListe
 
         //dropdown menu
         String[] arraySpinner = new String[] {
-                "Moški", "Ženska", "Drugo"
+                "Moški", "Ženski", "Drugo"
         };
         s = (Spinner) findViewById(R.id.gender);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,

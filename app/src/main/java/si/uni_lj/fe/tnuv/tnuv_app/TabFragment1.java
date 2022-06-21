@@ -79,7 +79,7 @@ public class TabFragment1 extends Fragment {
                     ArrayList<Vaja> listVaj = new ArrayList<Vaja>();
                     for (int k = 0; k < wv.get(j).vajaEntityList.size(); k++) {
                         VajaEntity v = wv.get(j).vajaEntityList.get(k);
-                        listVaj.add(new Vaja(v.idVaje, v.imeVaje, v.muscleG, R.drawable.dumbbell_icon, v.desc, v.cals));
+                        listVaj.add(new Vaja(v.idVaje, v.imeVaje, v.muscleG, R.drawable.dumbbell_icon, v.desc, v.cals, v.recomendedReps, v.recommendedSets));
 //                        TODO: calculateTotalCals();
                     }
                     listWorkoutov.add(new Workout(we.idWorkouta, we.imeWorkouta, we.trajanje, we.totalCals, listVaj));

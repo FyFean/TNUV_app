@@ -101,7 +101,7 @@ public class ListFragment extends Fragment {
     private void setVajaAdapter(List<VajaEntity> vaje, List<WorkoutEntity> we ) {
         for (int i = 0; i < vaje.size(); i++) {
             VajaEntity vajaE = vaje.get(i);
-            listVaj.add(new Vaja(vajaE.idVaje, vajaE.imeVaje, vajaE.muscleG, vajaE.imgVaje, vajaE.desc, vajaE.cals));
+            listVaj.add(new Vaja(vajaE.idVaje, vajaE.imeVaje, vajaE.muscleG, vajaE.imgVaje, vajaE.desc, vajaE.cals, vajaE.recomendedReps, vajaE.recommendedSets));
         }
         for (int i = 0; i < we.size(); i++) {
             WorkoutEntity we_posamezna = we.get(i);
