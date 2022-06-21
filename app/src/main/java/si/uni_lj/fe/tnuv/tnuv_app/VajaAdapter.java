@@ -1,6 +1,7 @@
 package si.uni_lj.fe.tnuv.tnuv_app;
 
 import android.content.Intent;
+import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,6 +18,8 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
+import java.util.List;
+
 import androidx.cardview.widget.CardView;
 import androidx.room.Room;
 
@@ -39,12 +42,16 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
     Context context;
     LayoutInflater ly;
     AppDatabase db;
+    Workout clickedWorkout;
 
     //constructor
-    VajaAdapter(ArrayList<Vaja> listVaj,ArrayList<Workout> listWorkoutov, int cardType){
+    VajaAdapter(ArrayList<Vaja> listVaj,ArrayList<Workout> listWorkoutov, Workout clickedWorkout, int cardType){
         this.listVaj = listVaj;
         this.listWorkoutov = listWorkoutov;
+        this.clickedWorkout = clickedWorkout;
         this.cardType = cardType;
+
+
     }
 
     //MyViewHolder defines kako bo izgledal posamezni element v seznamu
@@ -58,9 +65,7 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
         private EditText stPonovitev;
         private EditText stSetov;
         private EditText tezaUtezi;
-
-
-
+        private Boolean smoPrvic = true;
 
         public MyViewHolder(final View view){
             super(view);
@@ -73,9 +78,6 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
             stPonovitev = (EditText) view.findViewById(R.id.stPonovitev);
             stSetov = (EditText) view.findViewById(R.id.stSetov);
             tezaUtezi = (EditText) view.findViewById(R.id.tezaUtezi);
-
-
-
 
         }
     }
@@ -172,6 +174,7 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
 
                     //setamo adapter
                     recyclerView.setAdapter(adapter);
+
                 }
 
 
@@ -205,24 +208,52 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
 
         if(cardType == 2) {
             holder.kljukica.setOnClickListener(new View.OnClickListener() {
+
                 @Override
                 public void onClick(View view) {
-                    System.out.println("shranjevanjeDetail");
-                    //int idWorkoutaCurrent = listWorkoutov.get(position).getIdWorkouta();
-                    int idVajeCurrent = listVaj.get(position).getIdVaje();
 
-//                    System.out.println("steviloreps"+Integer.parseInt(((EditText) view.findViewById(R.id.stPonovitev)).getText().toString()));
+                    System.out.println("on click smo prvic: " + holder.smoPrvic);
+                    if(holder.smoPrvic){
+                        new Thread(){
+
+                            @Override
+                            public void run() {
+
+                                //delete prejsne detailse
+                                List<DetailsEntity> d_od_w = db.detailsDAO().findDetailsOdWorkouta(clickedWorkout.getIdWorkouta());
+                                for (int i = 0; i < d_od_w.size(); i++) {
+                                    db.detailsDAO().deleteDetailByID(d_od_w.get(i).idDetails);
+                                }
+
+                                if(holder.stPonovitev.getText().length() == 0 || holder.tezaUtezi.getText().length() == 0 || holder.stSetov.getText().length() == 0){
+                                    ((Activity)context).runOnUiThread( () -> Toast.makeText(context,"Prosim izpolni vsa polja",Toast.LENGTH_LONG).show());
+                                }else{
+                                    DetailsEntity detajli = new DetailsEntity();
+                                    detajli.pripadaVaji = listVaj.get(position).getIdVaje();
+                                    detajli.pripadaWorkoutu = clickedWorkout.getIdWorkouta();
+                                    detajli.reps = Integer.parseInt(holder.stPonovitev.getText().toString());
+                                    detajli.weight = Integer.parseInt(holder.tezaUtezi.getText().toString());
+                                    detajli.setNo = Integer.parseInt(holder.stSetov.getText().toString());
+                                    db.detailsDAO().insert(detajli);
+                                }
 
 
-                DetailsEntity detajli = new DetailsEntity();
-                detajli.pripadaVaji = idVajeCurrent;
-                detajli.pripadaWorkoutu = 0;
-                detajli.reps = Integer.parseInt(holder.stPonovitev.getText().toString());
-                detajli.weight = Integer.parseInt(holder.tezaUtezi.getText().toString());
-                detajli.setNo = Integer.parseInt(holder.stSetov.getText().toString());
-                db.detailsDAO().insert(detajli);
-                    // db.personDAO().getAll().get(0).imePriimek
-                System.out.println("namesurname "+ db.personDAO().getAll().get(0).imePriimek);
+                                List<DetailsEntity> d_od_w3 = db.detailsDAO().findDetailsOdWorkouta(clickedWorkout.getIdWorkouta());
+                                for (int i = 0; i < d_od_w3.size(); i++) {
+                                    System.out.println( "details pol after inserted by id: " + d_od_w3.get(i).idDetails );
+
+                                }
+
+
+
+                            }
+                        }.start();
+
+                        //delete detailse pri workoutu ce so od prej
+                        holder.smoPrvic = false;
+
+                    }
+
                 }
             });
         }

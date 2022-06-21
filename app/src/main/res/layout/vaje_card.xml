@@ -59,13 +59,13 @@
                 android:textSize="14sp" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/dodajBtn"
                 android:layout_width="52dp"
                 android:layout_height="52dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="30dp"
                 android:backgroundTint="@color/theDarkest"
-                android:id="@+id/dodajBtn"
                 android:insetLeft="0dp"
                 android:insetTop="0dp"
                 android:insetRight="0dp"

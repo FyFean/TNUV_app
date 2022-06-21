@@ -9,18 +9,26 @@
     android:background="@color/bcg"
     android:id="@+id/pieceOfShit">
 
-    <TextView
+    <EditText
+        android:id="@+id/novaTelovadbaIme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="Nova telovadba"
+        android:cursorVisible="false"
         android:layout_centerHorizontal="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/white"
-        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="40dp"
-        android:id="@+id/izbranWorkout">
-    </TextView>
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="text"
+        android:textColorHint="@color/proba"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
+        android:gravity="center_horizontal"/>
+
     <com.google.android.material.button.MaterialButton
         app:cornerRadius="25dp"
         android:layout_width="60dp"
@@ -53,7 +61,7 @@
         android:id="@+id/scroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -65,13 +73,32 @@
             android:background="@color/bcg"
             tools:context=".WorkoutPodrobnosti">
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/dodajBtn"
+                android:layout_width="190dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/theDarkest"
+                android:gravity="center"
+                android:text="Dodaj vajo"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:cornerRadius="25dp"
+                app:elevation="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/recyclerViewStart"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
             <!--    TODO: DODAJ START WORKOUT za ccontext-->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewStart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toTopOf="@+id/finishBtn"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/dodajBtn">
             </androidx.recyclerview.widget.RecyclerView>
 
 

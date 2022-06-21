@@ -26,6 +26,7 @@ public class Vaja implements Parcelable {
     }
 
     protected Vaja(Parcel in) {
+        idVaje = in.readInt();
         imeVaje = in.readString();
         muscleG = in.readString();
         imgVaje = in.readInt();
@@ -33,6 +34,8 @@ public class Vaja implements Parcelable {
         cals = in.readInt();
         recommendedSets = in.readInt();
         recommendedReps = in.readInt();
+        desc = in.readString();
+        cals = in.readInt();
     }
 
     public void setIdVaje(int idVaje) {
@@ -111,8 +114,13 @@ public class Vaja implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(idVaje);
         parcel.writeString(imeVaje);
         parcel.writeString(muscleG);
         parcel.writeInt(imgVaje);
+        parcel.writeString(desc);
+        parcel.writeInt(cals);
+        parcel.writeInt(recommendedReps);
+        parcel.writeInt(recommendedSets);
     }
 }

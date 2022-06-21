@@ -19,4 +19,9 @@ public interface WorkoutVajeDAO {
     @Transaction
     @Query("SELECT * FROM WorkoutEntity")
     public List<WorkoutVaje> getWorkoutVaje();
+
+    @Transaction
+    @Query("SELECT * FROM WorkoutEntity WHERE idWorkouta = :workoutId")
+    public List<WorkoutVaje> getVajeByWID(int workoutId);
+
 }

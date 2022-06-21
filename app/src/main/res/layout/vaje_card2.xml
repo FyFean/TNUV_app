@@ -16,13 +16,14 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="10dp"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -148,6 +149,10 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="Dopolni!"
+                        android:gravity="center_horizontal"
+                        android:layout_centerHorizontal="true"
+                        android:textColorHint="@color/proba"
+                        android:backgroundTint="@color/white"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:inputType="number"
@@ -165,8 +170,12 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="Dopolni!"
+                        android:gravity="center_horizontal"
+                        android:layout_centerHorizontal="true"
+                        android:backgroundTint="@color/white"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
+                        android:textColorHint="@color/proba"
                         android:inputType="number"
                         android:textColor="@color/white"/>
                 </LinearLayout>
@@ -180,6 +189,10 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="Dopolni!"
+                        android:gravity="center_horizontal"
+                        android:layout_centerHorizontal="true"
+                        android:backgroundTint="@color/white"
+                        android:textColorHint="@color/proba"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:inputType="number"

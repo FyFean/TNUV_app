@@ -11,6 +11,9 @@ public interface DetailsDAO {
     @Query("SELECT * FROM DetailsEntity")
     List<DetailsEntity> getAll();
 
+    @Query("DELETE FROM DetailsEntity WHERE idDetails = :idD")
+    void deleteDetailByID(int idD);
+
     @Query("SELECT * FROM DetailsEntity "+
             "WHERE DetailsEntity.pripadaWorkoutu = :idW AND " +
             "DetailsEntity.pripadaVaji = :idV ")

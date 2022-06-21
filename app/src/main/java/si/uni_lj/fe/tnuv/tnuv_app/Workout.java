@@ -45,8 +45,11 @@ public class Workout implements Parcelable {
     }
 
     protected Workout(Parcel in) {
+        idWorkouta = in.readInt();
         vaje = in.createTypedArrayList(Vaja.CREATOR);
         ime = in.readString();
+        trajanje = in.readInt();
+        totalCals = in.readInt();
     }
 
     public static final Creator<Workout> CREATOR = new Creator<Workout>() {
@@ -84,7 +87,10 @@ public class Workout implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(idWorkouta);
         parcel.writeTypedList(vaje);
         parcel.writeString(ime);
+        parcel.writeInt(trajanje);
+        parcel.writeInt(totalCals);
     }
 }

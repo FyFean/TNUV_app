@@ -89,7 +89,6 @@ public class ListFragment extends Fragment {
                 AppDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(), AppDatabase.class, "database-name").build();
 
                 List<VajaEntity> v = db.vajeDao().getAll();
-                System.out.println("koliko mamo vaj: " + v.size());
                 List<WorkoutEntity> we = db.workoutDAO().getCustom();
 
                 //vrne podatke v main thread
@@ -131,7 +130,7 @@ public class ListFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
 
         // 3. create an adapter
-        adapter = new VajaAdapter(listVaj, listWorkoutov, 1);
+        adapter = new VajaAdapter(listVaj, listWorkoutov,null, 1);
 
         // 4. set adapter
         recyclerView.setAdapter(adapter);
