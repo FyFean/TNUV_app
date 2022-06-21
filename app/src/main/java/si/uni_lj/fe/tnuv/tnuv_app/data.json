@@ -1,0 +1,63 @@
+{
+  "vaje": [
+    {
+      "imeVaje": "Počepi",
+      "muscleG": "Noge",
+      "imgVaje":"R.drawable.ic_overheadpress",
+      "cals": "20"
+    },
+    {
+      "imeVaje": "Nadglavni vzdig",
+      "muscleG": "Ramena",
+      "imgVaje":"R.drawable.ic_overheadpress",
+      "cals": "20"
+    },
+    {
+      "imeVaje": "Izpadni korak",
+      "muscleG": "Noge",
+      "imgVaje":"R.drawable.ic_overheadpress",
+      "cals": "20"
+    },
+    {
+      "imeVaje": "Bočni vzdig",
+      "muscleG": "Noge",
+      "imgVaje":"R.drawable.ic_overheadpress",
+      "cals": "20"
+    },
+    {
+      "imeVaje": "Biceps vzdig",
+      "muscleG": "Roke",
+      "imgVaje":"R.drawable.ic_overheadpress",
+      "cals": "10"
+    },
+    {
+      "imeVaje": "Mrtvi vzdig",
+      "muscleG": "Noge",
+      "imgVaje":"R.drawable.ic_overheadpress",
+      "cals": "15"
+    }
+  ],
+  "workout": [
+    {
+      "imeWorkouta": "Upper Body",
+      "isCustom": 1,
+      "trajanje": 30,
+      "totalCals": 0,
+      "pripadaOsebi": 1
+    },
+    {
+      "imeWorkouta": "Upper Body",
+      "isCustom": 1,
+      "trajanje": 30,
+      "totalCals": 0,
+      "pripadaOsebi": 1
+    },
+    {
+      "imeWorkouta": "Upper Body",
+      "isCustom": 1,
+      "trajanje": 30,
+      "totalCals": 0,
+      "pripadaOsebi": 1
+    }
+  ]
+}

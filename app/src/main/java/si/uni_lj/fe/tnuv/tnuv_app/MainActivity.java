@@ -5,9 +5,22 @@ import androidx.fragment.app.Fragment;
 import androidx.room.Room;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.material.navigation.NavigationBarView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import si.uni_lj.fe.tnuv.tnuv_app.database2.AppDatabase;
@@ -25,6 +38,24 @@ public class MainActivity extends AppCompatActivity {
 
     private NavigationBarView navigationBarView;
 //    private AppDatabase db;
+
+//    public String loadJSONFromAsset() {
+//        String json = null;
+//        try {
+//            InputStream is = getAssets().open("/Users/maticmerela/Desktop/BootieBuilder_1 copy_new/app/src/main/java/si/uni_lj/fe/tnuv/tnuv_app/data.json");
+//            int size = is.available();
+//            byte[] buffer = new byte[size];
+//            is.read(buffer);
+//            is.close();
+//            json = new String(buffer, "UTF-8");
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//            return null;
+//        }
+//        System.out.println("Derulo: "+json);
+//        return json;
+//    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,16 +75,14 @@ public class MainActivity extends AppCompatActivity {
 //        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
 
 
-
-
-
-
     }
 
     public void InsertDataInDB(){
         //TODO: popravi da je na svoji niti
        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "database-name").allowMainThreadQueries().build();
-
+//        ArrayList<HashMap<String, String>> podatki = new JsonParser().parseToArrayList(loadJSONFromAsset());
+//        System.out.println("PODATKI ");
+//        loadJSONFromAsset();
 
 // P E O P L E
 
