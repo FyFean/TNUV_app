@@ -57,22 +57,8 @@ public class EmptyWorkout extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void run() {
                         AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "database-name").build();
-
-                        List<WorkoutEntity> w1 = db.workoutDAO().getAll();
-                        for (int i = 0; i < w1.size(); i++) {
-                            System.out.println("++ ime wokrouta: "+w1.get(i).imeWorkouta );
-                        }
-                        System.out.println();
-
-                        System.out.println("novaTelovadbaIme.toString()" + novaTelovadbaIme.getText().toString());
-
                         db.workoutDAO().updateImeWorkouta(novaTelovadbaIme.getText().toString(), novWorkout.getIdWorkouta());
 
-                        List<WorkoutEntity> w2 = db.workoutDAO().getAll();
-                        for (int i = 0; i < w2.size(); i++) {
-                            System.out.println("++ ime wokrouta: "+w2.get(i).imeWorkouta );
-                        }
-                        //vrne podatke v main thread
                     }
                 }.start();
 
@@ -212,31 +198,33 @@ public class EmptyWorkout extends AppCompatActivity implements View.OnClickListe
 
                 novWorkout = new Workout(idInsertanega,"Dodaj novo ime telovadbe", 0,0,listVajZaNewWrk );
                 //vrne podatke v main thread
-//                getActivity().runOnUiThread( () -> setWorkoutAdapter(w, wv));
+                runOnUiThread( () -> setAdapterFirstTime(novWorkout));
             }
         }.start();
 
 
-//        SET TEXT ZA IZBRAN WORKOUT
-//        imeWorkoutaText = (TextView)findViewById(R.id.izbranWorkout);
-//        imeWorkoutaText.setText("");
+        // ADAPTER PART1. get a reference to recyclerView
+//        recyclerView = findViewById(R.id.recyclerViewStart);
+//
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//
+//        adapter = new VajaAdapter(listVajZaNewWrk,null,null, 2);
+//
+//        recyclerView.setAdapter(adapter);
 
+
+    }
+
+    public void setAdapterFirstTime(Workout w){
         // ADAPTER PART1. get a reference to recyclerView
         recyclerView = findViewById(R.id.recyclerViewStart);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new VajaAdapter(listVajZaNewWrk,null,null, 0);
+        adapter = new VajaAdapter(listVajZaNewWrk,null,w, 2);
 
         recyclerView.setAdapter(adapter);
 
-
-//        dialog.setOnCancelListener(new OnCancelListener() {
-//            @Override
-//            public void onCancel(DialogInterface dialog) {
-//                //do somethiing
-//            }
-//        });
     }
 
 }
