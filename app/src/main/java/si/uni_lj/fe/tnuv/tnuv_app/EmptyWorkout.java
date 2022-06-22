@@ -226,7 +226,7 @@ public class EmptyWorkout extends AppCompatActivity implements View.OnClickListe
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new VajaAdapter(listVajZaNewWrk,null,null, 2);
+        adapter = new VajaAdapter(listVajZaNewWrk,null,null, 0);
 
         recyclerView.setAdapter(adapter);
 

@@ -2,6 +2,7 @@ package si.uni_lj.fe.tnuv.tnuv_app;
 
 import android.content.Intent;
 import android.app.Activity;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -61,7 +62,7 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
         private ImageView img;
         private MaterialButton button;
         private MaterialButton kljukica;
-        CardView cv;
+        private CardView cv;
         private EditText stPonovitev;
         private EditText stSetov;
         private EditText tezaUtezi;
@@ -72,7 +73,6 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
             nameTxt =  (TextView)view.findViewById(R.id.textImeVaje);
             muscleTxt =  (TextView)view.findViewById(R.id.textMuscleG);
             img =  (ImageView)view.findViewById(R.id.imgVaje);
-            System.out.println("slikica"+img);
             button = view.findViewById(R.id.dodajBtn);
             cv = (CardView)view.findViewById(R.id.cv);
             kljukica = view.findViewById(R.id.kljukica);
@@ -119,13 +119,12 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
         String imeV = listVaj.get(position).getImeVaje();
         String muscleV = listVaj.get(position).getMuscleG();
         int imgV = listVaj.get(position).getImgVaje();
-        System.out.println("slikicaVVVVV"+imgV);
 
         holder.nameTxt.setText(imeV);
         holder.muscleTxt.setText(muscleV);
         holder.img.setImageResource(imgV);
 
-        //System.out.println("imgV"+imgV);
+        System.out.println("imgV"+imgV);
 
         if(cardType == 1) {
             //P O P U P  W I N D O W
@@ -180,11 +179,6 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
                 }
 
 
-//        holder.cv.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(context,"The position is:"+position,Toast.LENGTH_SHORT).show();
-//            }
             });
 
         }
@@ -237,12 +231,8 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
                                     detajli.weight = Integer.parseInt(holder.tezaUtezi.getText().toString());
                                     detajli.setNo = Integer.parseInt(holder.stSetov.getText().toString());
                                     db.detailsDAO().insert(detajli);
-                                }
-
-
-                                List<DetailsEntity> d_od_w3 = db.detailsDAO().findDetailsOdWorkouta(clickedWorkout.getIdWorkouta());
-                                for (int i = 0; i < d_od_w3.size(); i++) {
-                                    System.out.println( "details pol after inserted by id: " + d_od_w3.get(i).idDetails );
+                                    System.out.println("holder.cv "+holder.cv);
+                                    ((Activity)context).runOnUiThread( () ->  uiChange(holder));
 
                                 }
 
@@ -263,33 +253,11 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
 
     }
 
-//    public void onButtonShowPopupWindowClick(View view) {
-//
-//        // inflate the layout of the popup window
-//        LayoutInflater inflater = (LayoutInflater)
-//                getSystemService(LAYOUT_INFLATER_SERVICE);
-//
-//        View popupView = inflater.inflate(R.layout.popup_window, null);
-//
-//        // create the popup window
-//        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-//        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-//        boolean focusable = true; // lets taps outside the popup also dismiss it
-//        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-//
-//        // show the popup window
-//        // which view you pass in doesn't matter, it is only used for the window tolken
-//        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-//
-//        // dismiss the popup window when touched
-//        popupView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                popupWindow.dismiss();
-//                return true;
-//            }
-//        });
-//    }
+    void uiChange(VajaAdapter.MyViewHolder holder){
+        holder.kljukica.setBackgroundColor(Color.parseColor("#B74277"));
+//        holder.cv.setCardBackgroundColor(Color.parseColor("#b385cc"));
+
+    }
 
     //setamo item count na dolzino arraylista
     @Override
