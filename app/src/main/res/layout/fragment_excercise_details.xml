@@ -132,7 +132,6 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="85dp"
             android:layout_marginBottom="20dp"
-            android:text="Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia"
             android:textColor="@color/white"
             android:textSize="18sp" />
 

@@ -54,6 +54,9 @@ public class VajaPodrobnosti extends AppCompatActivity implements View.OnClickLi
         nazajPodrobnosti = findViewById(R.id.nazajPodrobnosti);
         nazajPodrobnosti.setOnClickListener(this);
 
+        excercisePic = findViewById(R.id.slikaVaje);
+        excercisePic.setImageResource(clickedVaja.getImgVaje());
+
 
 
 //        excercisePic = findViewById(R.id.slikaVaje);

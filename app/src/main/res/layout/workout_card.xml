@@ -28,14 +28,14 @@
 
             <ImageView
                 android:id="@+id/imgWorkouta"
+                app:srcCompat="@drawable/dumbbell_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                />
+                android:layout_marginBottom="20dp" />
 
             <TextView
                 android:id="@+id/imeWorkouta"

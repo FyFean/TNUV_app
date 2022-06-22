@@ -19,6 +19,7 @@ import java.util.List;
 
 import si.uni_lj.fe.tnuv.tnuv_app.database2.AppDatabase;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.DetailsEntity;
+import si.uni_lj.fe.tnuv.tnuv_app.database2.PersonEntity;
 import si.uni_lj.fe.tnuv.tnuv_app.database2.WorkoutEntity;
 
 public class StartWorkout extends AppCompatActivity implements View.OnClickListener {
@@ -41,33 +42,9 @@ public class StartWorkout extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.finishBtn:
-                //ustvarjanje nove instance detailsov za vsako vajo v workoutu
-
-
-
-               // List<WorkoutEntity> w = db.workoutDAO().getAll();
-//                for (int i = 0; i < clickedWorkout.size(); i++) {
-//                    System.out.println("** id wokrouta: " +  w.get(i).idWorkouta + ", " + w.get(i).imeWorkouta );
-//                }
-
-                //shranimo v bazo details, ki se nanaša na posamezni workout in posamezno vajo
-//                int idWorkouta = clickedWorkout.getIdWorkouta();
-//
-//                DetailsEntity details = new DetailsEntity();
-//                details.pripadaVaji = 20;
-//                details.pripadaWorkoutu = idWorkouta;
-//                details.reps = Integer.parseInt(((EditText)findViewById(R.id.stPonovitev)).getText().toString());
-//                details.weight = Integer.parseInt(((EditText)findViewById(R.id.tezaUtezi)).getText().toString());
-//                details.setNo = Integer.parseInt(((EditText)findViewById(R.id.stSetov)).getText().toString());
-//
-//
-//                System.out.println("noviDetails "+Integer.parseInt(((EditText)findViewById(R.id.stPonovitev)).getText().toString()));
-//
-//                db.detailsDAO().insert(details);
-                //System.out.println("noviDetails "+ db.detailsDAO().getAll().get(1).pripadaWorkoutu);
-
-
-                //gremo na glavno aktivnost in na fragment workout ki se itak po defaultu prizge
+//                int cas = db.personDAO().getAll().get(0).timeDone + clickedWorkout.getTrajanje();
+//                PersonEntity person = db.personDAO().getAll().get(0);
+//                person.timeDone = cas;
                 Intent intent = new Intent(context, MainActivity.class);
                 context.startActivity(intent);
                 break;

@@ -72,6 +72,7 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
             nameTxt =  (TextView)view.findViewById(R.id.textImeVaje);
             muscleTxt =  (TextView)view.findViewById(R.id.textMuscleG);
             img =  (ImageView)view.findViewById(R.id.imgVaje);
+            System.out.println("slikica"+img);
             button = view.findViewById(R.id.dodajBtn);
             cv = (CardView)view.findViewById(R.id.cv);
             kljukica = view.findViewById(R.id.kljukica);
@@ -118,12 +119,13 @@ public class VajaAdapter extends RecyclerView.Adapter<VajaAdapter.MyViewHolder> 
         String imeV = listVaj.get(position).getImeVaje();
         String muscleV = listVaj.get(position).getMuscleG();
         int imgV = listVaj.get(position).getImgVaje();
+        System.out.println("slikicaVVVVV"+imgV);
 
         holder.nameTxt.setText(imeV);
         holder.muscleTxt.setText(muscleV);
         holder.img.setImageResource(imgV);
 
-        System.out.println("imgV"+imgV);
+        //System.out.println("imgV"+imgV);
 
         if(cardType == 1) {
             //P O P U P  W I N D O W

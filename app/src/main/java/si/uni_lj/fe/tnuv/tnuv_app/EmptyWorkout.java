@@ -157,7 +157,7 @@ public class EmptyWorkout extends AppCompatActivity implements View.OnClickListe
                 VajaEntity v = vw.get(0).vajaEntityList.get(j);
                 System.out.println("printinggggggggggggg");
                 System.out.println("listVajZaNewWrk: " + v.imeVaje);
-                listVajZaNewWrk.add(new Vaja(v.idVaje, v.imeVaje, v.muscleG, v.imgVaje, v.desc, v.cals));
+                listVajZaNewWrk.add(new Vaja(v.idVaje, v.imeVaje, v.muscleG, v.imgVaje, v.desc, v.cals, v.recomendedReps, v.recommendedSets));
 
             }
 
@@ -207,7 +207,7 @@ public class EmptyWorkout extends AppCompatActivity implements View.OnClickListe
 
                 List<VajaEntity> ve = db.vajeDao().getAll();
                 for (int i = 0; i < ve.size(); i++) {
-                    listVsehVaj.add(new Vaja(ve.get(i).idVaje, ve.get(i).imeVaje,ve.get(i).muscleG, R.drawable.dumbbell_icon, ve.get(i).desc, ve.get(i).cals));
+                    listVsehVaj.add(new Vaja(ve.get(i).idVaje, ve.get(i).imeVaje,ve.get(i).muscleG, R.drawable.dumbbell_icon, ve.get(i).desc, ve.get(i).cals, ve.get(i).recomendedReps, ve.get(i).recommendedSets));
                 }
 
                 novWorkout = new Workout(idInsertanega,"Dodaj novo ime telovadbe", 0,0,listVajZaNewWrk );
@@ -226,7 +226,7 @@ public class EmptyWorkout extends AppCompatActivity implements View.OnClickListe
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new VajaAdapter(listVajZaNewWrk,null,null, 0);
+        adapter = new VajaAdapter(listVajZaNewWrk,null,null, 2);
 
         recyclerView.setAdapter(adapter);
 

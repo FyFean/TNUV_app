@@ -131,8 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:scaleX="0.9"
-                android:scaleY="0.9"
-                app:srcCompat="@drawable/ic_chart_svgrepo_com" />
+                android:scaleY="0.9" />
 
 
         </LinearLayout>

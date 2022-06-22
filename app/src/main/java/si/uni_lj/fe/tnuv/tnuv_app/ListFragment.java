@@ -80,7 +80,7 @@ public class ListFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
+        listVaj.clear();
         //thread implements interface runnable ki ima notr metodo run
         new Thread(){
 
@@ -110,8 +110,6 @@ public class ListFragment extends Fragment {
         }
 
         adapter.notifyDataSetChanged();
-
-
     }
 
     //najprej se klice onCreateView zato tuki nastavimo new Adapter in sele ko

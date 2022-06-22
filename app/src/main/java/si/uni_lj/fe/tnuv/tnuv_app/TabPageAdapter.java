@@ -42,11 +42,11 @@ public class TabPageAdapter extends FragmentPagerAdapter {
         String title = null;
         if (position == 0)
         {
-            title = "Custom";
+            title = "Po meri";
         }
         else if (position == 1)
         {
-            title = "Premade";
+            title = "Pripravljeni";
         }
         return title;
     }

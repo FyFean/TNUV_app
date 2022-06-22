@@ -34,7 +34,6 @@ public class Vaja implements Parcelable {
         cals = in.readInt();
         recommendedSets = in.readInt();
         recommendedReps = in.readInt();
-        desc = in.readString();
         cals = in.readInt();
     }
 
@@ -110,6 +109,14 @@ public class Vaja implements Parcelable {
     @Override
     public int describeContents() {
         return 0;
+    }
+
+    public static Creator<Vaja> getCREATOR() {
+        return CREATOR;
+    }
+
+    public void setRecommendedReps(int recommendedReps) {
+        this.recommendedReps = recommendedReps;
     }
 
     @Override

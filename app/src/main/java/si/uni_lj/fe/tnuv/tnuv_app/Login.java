@@ -142,9 +142,9 @@ public class Login extends AppCompatActivity {
         System.out.println("šššššš klicemo insert data in db");
 
         VajaEntity squats = new VajaEntity();
-        squats.imeVaje = "Squats";
-        squats.muscleG = "Legs";
-        squats.imgVaje = R.drawable.ic_overheadpress;
+        squats.imeVaje = "Počep";
+        squats.muscleG = "Noge";
+        squats.imgVaje = R.drawable.ic_squats;
         squats.cals = 20;
         squats.desc = "Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia";
         squats.recommendedSets = 4;
@@ -154,7 +154,7 @@ public class Login extends AppCompatActivity {
         VajaEntity nadGlavni_vzdig = new VajaEntity();
         nadGlavni_vzdig.imeVaje = "Nadglavni vzdig";
         nadGlavni_vzdig.muscleG = "Ramena";
-        nadGlavni_vzdig.imgVaje = R.drawable.ic_overheadpress;
+        nadGlavni_vzdig.imgVaje = R.drawable.ic_overheadpress2;
         nadGlavni_vzdig.cals = 20;
         nadGlavni_vzdig.desc = "Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia";
         nadGlavni_vzdig.recommendedSets = 4;
@@ -162,9 +162,9 @@ public class Login extends AppCompatActivity {
         db.vajeDao().insert(nadGlavni_vzdig);
 
         VajaEntity lundges = new VajaEntity();
-        lundges.imeVaje = "Lundges";
-        lundges.muscleG = "Legs";
-        lundges.imgVaje = R.drawable.ic_overheadpress;
+        lundges.imeVaje = "Izpadni korak";
+        lundges.muscleG = "Noge";
+        lundges.imgVaje = R.drawable.ic_lunges;
         lundges.cals = 20;
         lundges.desc = "Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia";
         lundges.recommendedSets = 4;
@@ -172,29 +172,29 @@ public class Login extends AppCompatActivity {
         db.vajeDao().insert(lundges);
 
         VajaEntity hipThr = new VajaEntity();
-        hipThr.imeVaje = "Hip thrusts";
-        hipThr.muscleG = "Legs";
-        hipThr.imgVaje = R.drawable.ic_overheadpress;
+        hipThr.imeVaje = "Prsni vlek";
+        hipThr.muscleG = "Hrbet";
+        hipThr.imgVaje = R.drawable.ic_gymnast_silhouette_showing_muscles_svgrepo_com;
         hipThr.cals = 20;
         hipThr.desc = "Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia";
-        hipThr.recommendedSets = 4;
-        hipThr.recomendedReps = 10;
+        hipThr.recommendedSets = 5;
+        hipThr.recomendedReps = 12;
         db.vajeDao().insert(hipThr);
 
         VajaEntity good_morning = new VajaEntity();
-        good_morning.imeVaje = "Good morning";
-        good_morning.muscleG = "Legs";
-        good_morning.imgVaje = R.drawable.ic_overheadpress;
+        good_morning.imeVaje = "Prsni potisk";
+        good_morning.muscleG = "Prsa";
+        good_morning.imgVaje = R.drawable.ic_benchpress;
         good_morning.cals= 11;
         good_morning.desc = "Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia";
         good_morning.recommendedSets = 4;
-        good_morning.recomendedReps = 10;
+        good_morning.recomendedReps = 8;
         db.vajeDao().insert(good_morning);
 
         VajaEntity romanian_deadlift = new VajaEntity();
-        romanian_deadlift.imeVaje = "Romanian deadlift";
-        romanian_deadlift.muscleG = "Legs";
-        romanian_deadlift.imgVaje = R.drawable.ic_overheadpress;
+        romanian_deadlift.imeVaje = "Mrtvi vzdig";
+        romanian_deadlift.muscleG = "Noge in spodnji hrbet";
+        romanian_deadlift.imgVaje = R.drawable.ic_deadlift;
         romanian_deadlift.cals= 33;
         romanian_deadlift.desc = "Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia Scientia Est Potentia";
         romanian_deadlift.recommendedSets = 4;
@@ -202,7 +202,7 @@ public class Login extends AppCompatActivity {
         db.vajeDao().insert(romanian_deadlift);
 
         WorkoutEntity upperBody = new WorkoutEntity();
-        upperBody.imeWorkouta = "Upper body";
+        upperBody.imeWorkouta = "Zgornji del telesa";
         upperBody.isCustom = 1;
         upperBody.trajanje = 30;
         upperBody.totalCals = 0;
@@ -210,7 +210,7 @@ public class Login extends AppCompatActivity {
         db.workoutDAO().insert(upperBody);
 
         WorkoutEntity upperBody2 = new WorkoutEntity();
-        upperBody2.imeWorkouta = "Upper body 2";
+        upperBody2.imeWorkouta = "Nabite nogice";
         upperBody2.isCustom = 1;
         upperBody2.trajanje = 40;
         upperBody2.totalCals = 0;
@@ -218,7 +218,7 @@ public class Login extends AppCompatActivity {
         db.workoutDAO().insert(upperBody2);
 
         WorkoutEntity upperBody3 = new WorkoutEntity();
-        upperBody3.imeWorkouta = "Upper body 3";
+        upperBody3.imeWorkouta = "Poletno telo";
         upperBody3.isCustom = 1;
         upperBody3.trajanje = 40;
         upperBody3.totalCals = 0;
@@ -226,7 +226,7 @@ public class Login extends AppCompatActivity {
         db.workoutDAO().insert(upperBody3);
 
         WorkoutEntity leggo = new WorkoutEntity();
-        leggo.imeWorkouta = "Leg day";
+        leggo.imeWorkouta = "Jutranja telovadba";
         leggo.isCustom = 0;
         leggo.trajanje = 30;
         leggo.totalCals = 0;
@@ -234,7 +234,7 @@ public class Login extends AppCompatActivity {
         db.workoutDAO().insert(leggo);
 
         WorkoutEntity leggo2 = new WorkoutEntity();
-        leggo2.imeWorkouta = "Leg day2";
+        leggo2.imeWorkouta = "Kardio telovadba";
         leggo2.isCustom = 0;
         leggo2.trajanje = 30;
         leggo2.totalCals = 0;
